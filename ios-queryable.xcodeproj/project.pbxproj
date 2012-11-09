@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		402E0FAF164B83C2004D3D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAE164B83C2004D3D9C /* Foundation.framework */; };
-		402E0FB4164B83C2004D3D9C /* ios_queryable.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 402E0FB3164B83C2004D3D9C /* ios_queryable.h */; };
-		402E0FB6164B83C2004D3D9C /* ios_queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FB5164B83C2004D3D9C /* ios_queryable.m */; };
 		402E0FBE164B83C2004D3D9C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FBD164B83C2004D3D9C /* SenTestingKit.framework */; };
 		402E0FC0164B83C2004D3D9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FBF164B83C2004D3D9C /* UIKit.framework */; };
 		402E0FC1164B83C2004D3D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAE164B83C2004D3D9C /* Foundation.framework */; };
-		402E0FC4164B83C2004D3D9C /* libios-queryable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAB164B83C2004D3D9C /* libios-queryable.a */; };
 		402E0FCA164B83C2004D3D9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 402E0FC8164B83C2004D3D9C /* InfoPlist.strings */; };
-		402E0FCD164B83C2004D3D9C /* ios_queryableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FCC164B83C2004D3D9C /* ios_queryableTests.m */; };
+		402E0FCD164B83C2004D3D9C /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FCC164B83C2004D3D9C /* BaseTest.m */; };
+		402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FD6164B8492004D3D9C /* TestModel.xcdatamodeld */; };
+		402E0FDB164B84E1004D3D9C /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FDA164B84E1004D3D9C /* Product.m */; };
+		40710E06164CA30E00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
+		40710E07164CA31F00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
+		40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */; };
+		40710E20164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */; };
+		40710E21164CB77900C0D1E9 /* libios-queryable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAB164B83C2004D3D9C /* libios-queryable.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +39,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				402E0FB4164B83C2004D3D9C /* ios_queryable.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,15 +48,21 @@
 		402E0FAB164B83C2004D3D9C /* libios-queryable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libios-queryable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		402E0FAE164B83C2004D3D9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		402E0FB2164B83C2004D3D9C /* ios-queryable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-queryable-Prefix.pch"; sourceTree = "<group>"; };
-		402E0FB3164B83C2004D3D9C /* ios_queryable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_queryable.h; sourceTree = "<group>"; };
-		402E0FB5164B83C2004D3D9C /* ios_queryable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_queryable.m; sourceTree = "<group>"; };
 		402E0FBC164B83C2004D3D9C /* ios-queryableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-queryableTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		402E0FBD164B83C2004D3D9C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		402E0FBF164B83C2004D3D9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		402E0FC7164B83C2004D3D9C /* ios-queryableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-queryableTests-Info.plist"; sourceTree = "<group>"; };
 		402E0FC9164B83C2004D3D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		402E0FCB164B83C2004D3D9C /* ios_queryableTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ios_queryableTests.h; sourceTree = "<group>"; };
-		402E0FCC164B83C2004D3D9C /* ios_queryableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_queryableTests.m; sourceTree = "<group>"; };
+		402E0FCB164B83C2004D3D9C /* BaseTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
+		402E0FCC164B83C2004D3D9C /* BaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTest.m; sourceTree = "<group>"; };
+		402E0FD7164B8492004D3D9C /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		402E0FD9164B84E1004D3D9C /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Model/Product.h; sourceTree = "<group>"; };
+		402E0FDA164B84E1004D3D9C /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Model/Product.m; sourceTree = "<group>"; };
+		40710E05164CA30E00C0D1E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		40710E08164CA9EF00C0D1E9 /* ofTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofTypeTests.h; sourceTree = "<group>"; };
+		40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofTypeTests.m; sourceTree = "<group>"; };
+		40710E1E164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
+		40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40710E06164CA30E00C0D1E9 /* CoreData.framework in Frameworks */,
 				402E0FAF164B83C2004D3D9C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,10 +79,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40710E21164CB77900C0D1E9 /* libios-queryable.a in Frameworks */,
+				40710E07164CA31F00C0D1E9 /* CoreData.framework in Frameworks */,
 				402E0FBE164B83C2004D3D9C /* SenTestingKit.framework in Frameworks */,
 				402E0FC0164B83C2004D3D9C /* UIKit.framework in Frameworks */,
 				402E0FC1164B83C2004D3D9C /* Foundation.framework in Frameworks */,
-				402E0FC4164B83C2004D3D9C /* libios-queryable.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +93,7 @@
 		402E0FA0164B83C2004D3D9C = {
 			isa = PBXGroup;
 			children = (
+				40710E05164CA30E00C0D1E9 /* CoreData.framework */,
 				402E0FB0164B83C2004D3D9C /* ios-queryable */,
 				402E0FC5164B83C2004D3D9C /* ios-queryableTests */,
 				402E0FAD164B83C2004D3D9C /* Frameworks */,
@@ -111,8 +123,8 @@
 		402E0FB0164B83C2004D3D9C /* ios-queryable */ = {
 			isa = PBXGroup;
 			children = (
-				402E0FB3164B83C2004D3D9C /* ios_queryable.h */,
-				402E0FB5164B83C2004D3D9C /* ios_queryable.m */,
+				40710E1E164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.h */,
+				40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */,
 				402E0FB1164B83C2004D3D9C /* Supporting Files */,
 			);
 			path = "ios-queryable";
@@ -129,9 +141,13 @@
 		402E0FC5164B83C2004D3D9C /* ios-queryableTests */ = {
 			isa = PBXGroup;
 			children = (
-				402E0FCB164B83C2004D3D9C /* ios_queryableTests.h */,
-				402E0FCC164B83C2004D3D9C /* ios_queryableTests.m */,
+				402E0FCB164B83C2004D3D9C /* BaseTest.h */,
+				402E0FCC164B83C2004D3D9C /* BaseTest.m */,
 				402E0FC6164B83C2004D3D9C /* Supporting Files */,
+				402E0FD6164B8492004D3D9C /* TestModel.xcdatamodeld */,
+				402E0FDC164B84F0004D3D9C /* Model */,
+				40710E08164CA9EF00C0D1E9 /* ofTypeTests.h */,
+				40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -143,6 +159,15 @@
 				402E0FC8164B83C2004D3D9C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		402E0FDC164B84F0004D3D9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				402E0FD9164B84E1004D3D9C /* Product.h */,
+				402E0FDA164B84E1004D3D9C /* Product.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				402E0FB6164B83C2004D3D9C /* ios_queryable.m in Sources */,
+				40710E20164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				402E0FCD164B83C2004D3D9C /* ios_queryableTests.m in Sources */,
+				402E0FCD164B83C2004D3D9C /* BaseTest.m in Sources */,
+				402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */,
+				402E0FDB164B84E1004D3D9C /* Product.m in Sources */,
+				40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +386,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-queryable/ios-queryable-Prefix.pch";
 				INFOPLIST_FILE = "ios-queryableTests/ios-queryableTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -373,6 +405,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-queryable/ios-queryable-Prefix.pch";
 				INFOPLIST_FILE = "ios-queryableTests/ios-queryableTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -397,6 +433,7 @@
 				402E0FD2164B83C2004D3D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		402E0FD3164B83C2004D3D9C /* Build configuration list for PBXNativeTarget "ios-queryableTests" */ = {
 			isa = XCConfigurationList;
@@ -405,8 +442,22 @@
 				402E0FD5164B83C2004D3D9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		402E0FD6164B8492004D3D9C /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				402E0FD7164B8492004D3D9C /* TestModel.xcdatamodel */,
+			);
+			currentVersion = 402E0FD7164B8492004D3D9C /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 402E0FA2164B83C2004D3D9C /* Project object */;
 }

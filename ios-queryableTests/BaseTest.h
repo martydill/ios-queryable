@@ -1,5 +1,5 @@
 //
-//  ios_queryableTests.h
+//  BaseTest.h
 //  ios-queryableTests
 //
 //  Created by Marty on 2012-11-07.
@@ -7,7 +7,11 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <CoreData/CoreData.h>
+#import "NSManagedObjectContext+Queryable.h"
 
-@interface ios_queryableTests : SenTestCase
+@interface BaseTest : SenTestCase
+
+-(NSManagedObjectContext*)getContext;
 
 @end
