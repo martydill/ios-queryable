@@ -22,12 +22,14 @@
 
 @property (strong) NSFetchRequest* fetchRequest;
 @property (strong) NSManagedObjectContext* context;
+@property (strong) NSMutableArray* sorts;
 
 @end
 
 
 @implementation IQueryable
 
+@synthesize sorts;
 @synthesize context;
 @synthesize fetchRequest;
 
@@ -44,6 +46,8 @@
         
         self.fetchRequest = [[NSFetchRequest alloc] init];
         [self.fetchRequest setEntity:entityDescription];
+        
+        self.sorts = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -52,8 +56,22 @@
 -(NSArray*)toArray
 {
     NSError* error = nil;
+    
+    NSMutableArray* sortDescriptors = [[NSMutableArray alloc] init];
+    for(NSString* sort in self.sorts)
+    {
+        [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:sort ascending:true]];
+    }
+    
+    self.fetchRequest.sortDescriptors = sortDescriptors;
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
+}
+
+-(IQueryable*)orderBy:(NSString*)fieldName
+{
+    [self.sorts addObject:fieldName];
+    return self;
 }
 
 @end

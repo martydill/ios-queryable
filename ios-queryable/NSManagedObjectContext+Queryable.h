@@ -16,6 +16,8 @@
 
 -(NSArray*) toArray;
 
+-(IQueryable*)orderBy:(NSString*)fieldName;
+
 @end
 
 

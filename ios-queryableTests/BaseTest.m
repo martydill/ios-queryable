@@ -17,14 +17,14 @@
 -(void)seedTestData:(NSManagedObjectContext*)context
 {
     NSMutableArray* products = [[NSMutableArray alloc] init];
-    
-    for(int i = 0; i < 10; ++i)
+    NSArray* names = [[NSArray alloc] initWithObjects:@"Peach", @"Apple", @"Banana", @"Orange", @"Strawberry", nil];
+    for(NSString* name in names)
     {
         Product* product = [NSEntityDescription
                                insertNewObjectForEntityForName:@"Product"
                                inManagedObjectContext:context];
-        product.name = [NSString stringWithFormat:@"Product %d", i];
-        product.created_on = [NSDate dateWithTimeIntervalSinceNow:1000];
+        product.name = name;
+        //product.created_on = [NSDate dateWithTimeIntervalSinceNow:1000];
         
         [products addObject:product];
     }

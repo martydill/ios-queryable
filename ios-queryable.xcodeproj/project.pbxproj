@@ -14,12 +14,13 @@
 		402E0FCA164B83C2004D3D9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 402E0FC8164B83C2004D3D9C /* InfoPlist.strings */; };
 		402E0FCD164B83C2004D3D9C /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FCC164B83C2004D3D9C /* BaseTest.m */; };
 		402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FD6164B8492004D3D9C /* TestModel.xcdatamodeld */; };
-		402E0FDB164B84E1004D3D9C /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FDA164B84E1004D3D9C /* Product.m */; };
 		40710E06164CA30E00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
 		40710E07164CA31F00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
 		40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */; };
 		40710E20164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */; };
 		40710E21164CB77900C0D1E9 /* libios-queryable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAB164B83C2004D3D9C /* libios-queryable.a */; };
+		40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E23164CD03300C0D1E9 /* orderByTests.m */; };
+		40710E2A164CD58300C0D1E9 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E29164CD58300C0D1E9 /* Product.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +57,15 @@
 		402E0FCB164B83C2004D3D9C /* BaseTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
 		402E0FCC164B83C2004D3D9C /* BaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTest.m; sourceTree = "<group>"; };
 		402E0FD7164B8492004D3D9C /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
-		402E0FD9164B84E1004D3D9C /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = Model/Product.h; sourceTree = "<group>"; };
-		402E0FDA164B84E1004D3D9C /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = Model/Product.m; sourceTree = "<group>"; };
 		40710E05164CA30E00C0D1E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		40710E08164CA9EF00C0D1E9 /* ofTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofTypeTests.h; sourceTree = "<group>"; };
 		40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofTypeTests.m; sourceTree = "<group>"; };
 		40710E1E164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Queryable.h"; sourceTree = "<group>"; };
 		40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
+		40710E22164CD03300C0D1E9 /* orderByTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderByTests.h; sourceTree = "<group>"; };
+		40710E23164CD03300C0D1E9 /* orderByTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderByTests.m; sourceTree = "<group>"; };
+		40710E28164CD58300C0D1E9 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		40710E29164CD58300C0D1E9 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				402E0FDC164B84F0004D3D9C /* Model */,
 				40710E08164CA9EF00C0D1E9 /* ofTypeTests.h */,
 				40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */,
+				40710E22164CD03300C0D1E9 /* orderByTests.h */,
+				40710E23164CD03300C0D1E9 /* orderByTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -164,8 +169,8 @@
 		402E0FDC164B84F0004D3D9C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				402E0FD9164B84E1004D3D9C /* Product.h */,
-				402E0FDA164B84E1004D3D9C /* Product.m */,
+				40710E28164CD58300C0D1E9 /* Product.h */,
+				40710E29164CD58300C0D1E9 /* Product.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,8 +283,9 @@
 			files = (
 				402E0FCD164B83C2004D3D9C /* BaseTest.m in Sources */,
 				402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */,
-				402E0FDB164B84E1004D3D9C /* Product.m in Sources */,
 				40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */,
+				40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */,
+				40710E2A164CD58300C0D1E9 /* Product.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
