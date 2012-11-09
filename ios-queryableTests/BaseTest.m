@@ -12,8 +12,12 @@
 
 @implementation BaseTest
 
+@synthesize testProductData;
+
 -(void)seedTestData:(NSManagedObjectContext*)context
 {
+    NSMutableArray* products = [[NSMutableArray alloc] init];
+    
     for(int i = 0; i < 10; ++i)
     {
         Product* product = [NSEntityDescription
@@ -21,9 +25,13 @@
                                inManagedObjectContext:context];
         product.name = [NSString stringWithFormat:@"Product %d", i];
         product.created_on = [NSDate dateWithTimeIntervalSinceNow:1000];
+        
+        [products addObject:product];
     }
     
     [context save:nil];
+    
+    self.testProductData = products;
 }
 
 -(NSManagedObjectContext*)getContext

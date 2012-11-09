@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryableTests/BaseTest.m"
-         timestampString = "374126139.215892"
+         timestampString = "374128256.344831"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
          landmarkName = "-getContext"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "17"
          endingLineNumber = "17"
-         landmarkName = "-test_OfType_InvalidType_ThrowsException"
+         landmarkName = "-test_ofType_Returns_IQueryable"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

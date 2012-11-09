@@ -14,6 +14,8 @@
 
 -(id)initWithType:(NSString*)type context:(NSManagedObject*)theContext;
 
+-(NSArray*) toArray;
+
 @end
 
 

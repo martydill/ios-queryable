@@ -22,6 +22,7 @@
 
 @property (strong) NSFetchRequest* fetchRequest;
 @property (strong) NSManagedObjectContext* context;
+
 @end
 
 
@@ -47,4 +48,12 @@
     
     return self;
 }
+
+-(NSArray*)toArray
+{
+    NSError* error = nil;
+    NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
+    return results;
+}
+
 @end

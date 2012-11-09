@@ -14,4 +14,6 @@
 
 -(NSManagedObjectContext*)getContext;
 
+@property (strong) NSArray* testProductData;
+
 @end
