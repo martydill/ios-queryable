@@ -31,4 +31,15 @@
     STAssertEqualObjects(firstProduct.name, @"Apple", @"Expected a product name of Apple");
 }
 
+
+- (void)test_take_negative_amount_returns_no_records
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[[context ofType:@"Product"] orderBy:@"name"] take:-1];
+    
+    NSArray* products = [queryable toArray];
+    
+    STAssertEquals(products.count, 0u, @"The wrong number of objects was returned");
+}
+
 @end

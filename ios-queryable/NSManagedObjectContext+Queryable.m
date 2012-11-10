@@ -52,6 +52,8 @@
         
         self.fetchRequest = [[NSFetchRequest alloc] init];
         [self.fetchRequest setEntity:entityDescription];
+        
+        self.takeCount = INT32_MAX;
     }
     
     return self;
@@ -59,6 +61,11 @@
 
 -(NSArray*)toArray
 {
+    if(self.takeCount <= 0)
+        return [[NSArray alloc] init];
+    
+    self.skipCount = MAX(self.skipCount, 0);
+
     NSError* error = nil;
     
     NSMutableArray* sortDescriptors = [[NSMutableArray alloc] init];
@@ -73,7 +80,7 @@
     
     self.fetchRequest.sortDescriptors = sortDescriptors;
     
-    [self.fetchRequest setFetchOffset:MAX(self.skipCount, 0)];
+    [self.fetchRequest setFetchOffset:self.skipCount];
     [self.fetchRequest setFetchLimit:self.takeCount];
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
