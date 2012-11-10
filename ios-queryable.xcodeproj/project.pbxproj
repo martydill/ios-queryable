@@ -22,6 +22,7 @@
 		40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E23164CD03300C0D1E9 /* orderByTests.m */; };
 		40710E2A164CD58300C0D1E9 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E29164CD58300C0D1E9 /* Product.m */; };
 		40710E2D164DF60300C0D1E9 /* skipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E2C164DF60300C0D1E9 /* skipTests.m */; };
+		40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E2F164DF8E700C0D1E9 /* takeTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		40710E29164CD58300C0D1E9 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		40710E2B164DF60300C0D1E9 /* skipTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skipTests.h; sourceTree = "<group>"; };
 		40710E2C164DF60300C0D1E9 /* skipTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = skipTests.m; sourceTree = "<group>"; };
+		40710E2E164DF8E700C0D1E9 /* takeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takeTests.h; sourceTree = "<group>"; };
+		40710E2F164DF8E700C0D1E9 /* takeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				40710E23164CD03300C0D1E9 /* orderByTests.m */,
 				40710E2B164DF60300C0D1E9 /* skipTests.h */,
 				40710E2C164DF60300C0D1E9 /* skipTests.m */,
+				40710E2E164DF8E700C0D1E9 /* takeTests.h */,
+				40710E2F164DF8E700C0D1E9 /* takeTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */,
 				40710E2A164CD58300C0D1E9 /* Product.m in Sources */,
 				40710E2D164DF60300C0D1E9 /* skipTests.m in Sources */,
+				40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

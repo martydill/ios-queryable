@@ -19,7 +19,6 @@
     STAssertNotNil(queryable, @"Queryable should not be null");
 }
 
-
 - (void)test_skip_skips_records
 {
     NSManagedObjectContext* context = [self getContext];

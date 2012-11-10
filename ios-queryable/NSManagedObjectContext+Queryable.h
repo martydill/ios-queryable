@@ -22,6 +22,8 @@
 
 -(IQueryable*)skip:(int)numberToSkip;
 
+-(IQueryable*)take:(int)numberToTake;
+
 @end
 
 

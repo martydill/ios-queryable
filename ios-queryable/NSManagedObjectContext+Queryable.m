@@ -25,12 +25,14 @@
 @property (strong) NSArray* sorts;
 @property (strong) NSArray* descendingSorts;
 @property int skipCount;
+@property int takeCount;
 
 @end
 
 
 @implementation IQueryable
 
+@synthesize takeCount;
 @synthesize skipCount;
 @synthesize sorts;
 @synthesize context;
@@ -72,7 +74,7 @@
     self.fetchRequest.sortDescriptors = sortDescriptors;
     
     [self.fetchRequest setFetchOffset:self.skipCount];
-    
+    [self.fetchRequest setFetchLimit:self.takeCount];
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
 }
@@ -95,4 +97,9 @@
     return self;
 }
 
+-(IQueryable*) take:(int)numberToTake
+{
+    self.takeCount = numberToTake;
+    return self;
+}
 @end
