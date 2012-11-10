@@ -73,7 +73,7 @@
     
     self.fetchRequest.sortDescriptors = sortDescriptors;
     
-    [self.fetchRequest setFetchOffset:self.skipCount];
+    [self.fetchRequest setFetchOffset:MAX(self.skipCount, 0)];
     [self.fetchRequest setFetchLimit:self.takeCount];
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;

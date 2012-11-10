@@ -31,4 +31,14 @@
     STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
 }
 
+-(void)test_skip_negative_amount_skips_nothing
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[[context ofType:@"Product"] orderBy:@"name"] skip:-1];
+    
+    NSArray* products = [queryable toArray];
+    
+    STAssertEquals(products.count, self.testProductData.count, @"The wrong number of objects was returned");
+}
+
 @end
