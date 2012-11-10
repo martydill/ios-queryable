@@ -25,6 +25,7 @@
 		40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E2F164DF8E700C0D1E9 /* takeTests.m */; };
 		40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E32164E2A9C00C0D1E9 /* firstTests.m */; };
 		40710E36164E2BCA00C0D1E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E35164E2BCA00C0D1E9 /* User.m */; };
+		40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		40710E32164E2A9C00C0D1E9 /* firstTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstTests.m; sourceTree = "<group>"; };
 		40710E34164E2BCA00C0D1E9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		40710E35164E2BCA00C0D1E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		40710E37164E2DE300C0D1E9 /* QueryCompositionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCompositionTests.h; sourceTree = "<group>"; };
+		40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCompositionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				40710E2C164DF60300C0D1E9 /* skipTests.m */,
 				40710E2E164DF8E700C0D1E9 /* takeTests.h */,
 				40710E2F164DF8E700C0D1E9 /* takeTests.m */,
+				40710E37164E2DE300C0D1E9 /* QueryCompositionTests.h */,
+				40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */,
 				40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */,
 				40710E36164E2BCA00C0D1E9 /* User.m in Sources */,
+				40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
