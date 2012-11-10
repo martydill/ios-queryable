@@ -24,6 +24,10 @@
 
 -(IQueryable*)take:(int)numberToTake;
 
+-(id)first;
+
+-(id)firstOrDefault;
+
 @end
 
 

@@ -109,4 +109,24 @@
     self.takeCount = numberToTake;
     return self;
 }
+
+-(id)first
+{
+    id result = [self firstOrDefault];
+    if(!result)
+        [NSException raise:@"The source sequence is empty" format:@""];
+    
+    return result;
+}
+
+-(id)firstOrDefault
+{
+    self.takeCount = 1;
+    NSArray* results = [self toArray];
+    if(results.count > 0)
+        return [results objectAtIndex:0];
+    else
+        return nil;
+}
+
 @end
