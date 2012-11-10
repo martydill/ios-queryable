@@ -18,6 +18,8 @@
 
 -(IQueryable*)orderBy:(NSString*)fieldName;
 
+-(IQueryable*)orderByDescending:(NSString*)fieldName;
+
 @end
 
 

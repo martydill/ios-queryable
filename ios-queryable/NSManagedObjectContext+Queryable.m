@@ -22,7 +22,8 @@
 
 @property (strong) NSFetchRequest* fetchRequest;
 @property (strong) NSManagedObjectContext* context;
-@property (strong) NSMutableArray* sorts;
+@property (strong) NSArray* sorts;
+@property (strong) NSArray* descendingSorts;
 
 @end
 
@@ -32,6 +33,7 @@
 @synthesize sorts;
 @synthesize context;
 @synthesize fetchRequest;
+@synthesize descendingSorts;
 
 -(id)initWithType:(NSString *)type context:(NSManagedObjectContext*)theContext
 {
@@ -46,8 +48,6 @@
         
         self.fetchRequest = [[NSFetchRequest alloc] init];
         [self.fetchRequest setEntity:entityDescription];
-        
-        self.sorts = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -62,15 +62,25 @@
     {
         [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:sort ascending:true]];
     }
+    for(NSString* descendingSort in self.descendingSorts)
+    {
+        [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:descendingSort ascending:false]];
+    }
     
     self.fetchRequest.sortDescriptors = sortDescriptors;
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
 }
 
--(IQueryable*)orderBy:(NSString*)fieldName
+-(IQueryable*) orderBy:(NSString*)fieldName
 {
-    [self.sorts addObject:fieldName];
+    self.sorts = [[NSArray alloc] initWithObjects:fieldName, nil];
+    return self;
+}
+
+-(IQueryable*) orderByDescending:(NSString*)fieldName
+{
+    self.descendingSorts = [[NSArray alloc] initWithObjects:fieldName, nil];
     return self;
 }
 

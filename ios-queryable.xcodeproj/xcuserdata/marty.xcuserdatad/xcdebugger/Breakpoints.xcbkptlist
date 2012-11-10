@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374134501.090714"
+         timestampString = "374207909.509266"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
          landmarkName = "-orderBy:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryableTests/orderByTests.m"
-         timestampString = "374133762.609676"
+         timestampString = "374207568.846434"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
          landmarkName = "-test_orderBy_Orders_Results"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,7 +125,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374134501.090714"
+         timestampString = "374207909.509266"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "63"
@@ -138,7 +138,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374134501.090714"
+         timestampString = "374207909.509266"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "60"
@@ -151,12 +151,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374134501.090714"
+         timestampString = "374207909.509266"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-toArray"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
+         timestampString = "374207909.509266"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
+         landmarkName = "-orderbyDescending:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
