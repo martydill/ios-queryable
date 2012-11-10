@@ -24,12 +24,14 @@
 @property (strong) NSManagedObjectContext* context;
 @property (strong) NSArray* sorts;
 @property (strong) NSArray* descendingSorts;
+@property int skipCount;
 
 @end
 
 
 @implementation IQueryable
 
+@synthesize skipCount;
 @synthesize sorts;
 @synthesize context;
 @synthesize fetchRequest;
@@ -68,6 +70,9 @@
     }
     
     self.fetchRequest.sortDescriptors = sortDescriptors;
+    
+    [self.fetchRequest setFetchOffset:self.skipCount];
+    
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
 }
@@ -81,6 +86,12 @@
 -(IQueryable*) orderByDescending:(NSString*)fieldName
 {
     self.descendingSorts = [[NSArray alloc] initWithObjects:fieldName, nil];
+    return self;
+}
+
+-(IQueryable*) skip:(int)numberToSkip
+{
+    self.skipCount = numberToSkip;
     return self;
 }
 

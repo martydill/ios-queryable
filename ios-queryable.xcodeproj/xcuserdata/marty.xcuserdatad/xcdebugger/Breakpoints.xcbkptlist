@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374207909.509266"
+         timestampString = "374208635.750366"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
          landmarkName = "-orderBy:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,33 +125,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374207909.509266"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-toArray"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374207909.509266"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-toArray"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374207909.509266"
+         timestampString = "374208581.801275"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "65"
@@ -164,12 +138,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374207909.509266"
+         timestampString = "374208581.801275"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
-         landmarkName = "-orderbyDescending:"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-toArray"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
+         timestampString = "374208581.801275"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
+         landmarkName = "-toArray"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
+         timestampString = "374208635.750366"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
+         landmarkName = "-orderByDescending:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -20,6 +20,8 @@
 
 -(IQueryable*)orderByDescending:(NSString*)fieldName;
 
+-(IQueryable*)skip:(int)numberToSkip;
+
 @end
 
 
