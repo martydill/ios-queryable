@@ -21,6 +21,16 @@
     STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
 }
 
+- (void)test_first_does_not_change_query
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
+    
+    Product* product = [queryable first];
+    NSArray* allProducts = [queryable toArray];
+    STAssertEquals(allProducts.count, self.testProductData.count, @"Expected an equal number of products");
+}
+
 - (void)test_first_throws_exception_if_object_does_not_exist
 {
     NSManagedObjectContext* context = [self getContext];

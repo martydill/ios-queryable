@@ -10,6 +10,17 @@
 
 @implementation QueryCompositionTests
 
+- (void)test_queries_return_different_objects
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [context ofType:@"Product"];
+    
+    IQueryable* q1 = [queryable skip:1];
+    IQueryable* q2 = [queryable skip:2];
+   
+    STAssertFalse(q1 == q2, @"Expected q1 and q2 to be different objects");
+}
+
 - (void)test_compose_queries_with_skip
 {
     NSManagedObjectContext* context = [self getContext];

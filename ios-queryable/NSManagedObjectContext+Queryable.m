@@ -20,14 +20,13 @@
 
 @interface IQueryable()
 
-@property (strong) NSFetchRequest* fetchRequest;
 @property (strong) NSManagedObjectContext* context;
 @property (strong) NSArray* sorts;
-@property (strong) NSArray* descendingSorts;
 @property (strong) NSArray* whereClauses;
 
 @property int skipCount;
 @property int takeCount;
+@property (strong) NSString* type;
 
 @end
 
@@ -39,24 +38,33 @@
 @synthesize sorts;
 @synthesize whereClauses;
 @synthesize context;
-@synthesize fetchRequest;
-@synthesize descendingSorts;
+@synthesize type;
 
--(id)initWithType:(NSString *)type context:(NSManagedObjectContext*)theContext
+-(id)initWithType:(NSString *)entityType context:(NSManagedObjectContext*)theContext
 {
     self = [super init];
     if(self != nil)
     {
+        self.type = entityType;
         self.context = theContext;
-        
-        NSEntityDescription *entityDescription = [NSEntityDescription
-                                                  entityForName:type
-                                                  inManagedObjectContext:self.context];
-        
-        self.fetchRequest = [[NSFetchRequest alloc] init];
-        [self.fetchRequest setEntity:entityDescription];
-        
         self.takeCount = INT32_MAX;
+        self.skipCount = 0;
+    }
+    
+    return self;
+}
+
+-(id)initWithType:(NSString*)entityType context:(NSManagedObjectContext*)theContext take:(int)newTake skip:(int)newSkip sorts:(NSArray*)newSorts whereClauses:(NSArray*)newWhereClauses
+{
+    self = [super init];
+    if(self != nil)
+    {
+        self.type = entityType;
+        self.context = theContext;
+        self.takeCount = newTake;
+        self.skipCount = newSkip;
+        self.sorts  = newSorts;
+        self.whereClauses = newWhereClauses;
     }
     
     return self;
@@ -67,61 +75,75 @@
     if(self.takeCount <= 0)
         return [[NSArray alloc] init];
     
-    self.skipCount = MAX(self.skipCount, 0);
+    int skip = MAX(self.skipCount, 0);
 
     NSError* error = nil;
     
-    NSMutableArray* sortDescriptors = [[NSMutableArray alloc] init];
-    for(NSString* sort in self.sorts)
-    {
-        [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:sort ascending:true]];
-    }
-    for(NSString* descendingSort in self.descendingSorts)
-    {
-        [sortDescriptors addObject:[[NSSortDescriptor alloc] initWithKey:descendingSort ascending:false]];
-    }
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:self.type
+                                              inManagedObjectContext:self.context];
     
-    self.fetchRequest.sortDescriptors = sortDescriptors;
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:entityDescription];
+
+    fetchRequest.sortDescriptors = self.sorts;
     
-    [self.fetchRequest setFetchOffset:self.skipCount];
-    [self.fetchRequest setFetchLimit:self.takeCount];
+    [fetchRequest setFetchOffset:skip];
+    [fetchRequest setFetchLimit:self.takeCount];
     
     if(self.whereClauses != nil)
-        self.fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
+        fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
     
-    NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
+    NSArray* results = [self.context executeFetchRequest:fetchRequest error:&error];
     return results;
+}
+
+-(NSArray*)add:(id)object toArray:(NSArray*)array
+{
+    NSMutableArray* a = [NSMutableArray arrayWithArray:array];
+    return [a arrayByAddingObject:object];
 }
 
 -(IQueryable*) orderBy:(NSString*)fieldName
 {
-    self.sorts = [[NSArray alloc] initWithObjects:fieldName, nil];
-    return self;
+    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:fieldName ascending:true];
+    NSArray* newSorts = [self add:descriptor toArray:self.sorts];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:newSorts whereClauses:self.whereClauses];
+    return q;
 }
 
 -(IQueryable*) orderByDescending:(NSString*)fieldName
 {
-    self.descendingSorts = [[NSArray alloc] initWithObjects:fieldName, nil];
-    return self;
+    NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:fieldName ascending:false];
+    NSArray* newSorts = [self add:descriptor toArray:self.sorts];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:newSorts whereClauses:self.whereClauses];
+    return q;
 }
 
 -(IQueryable*) skip:(int)numberToSkip
 {
-    self.skipCount = numberToSkip;
-    return self;
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:numberToSkip sorts:self.sorts whereClauses:self.whereClauses];
+
+    return q;
 }
 
 -(IQueryable*) take:(int)numberToTake
 {
-    self.takeCount = numberToTake;
-    return self;
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:numberToTake skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
+    
+    return q;
 }
 
 -(IQueryable*)where:(NSString*)condition
 {
     NSPredicate* predicate = [NSPredicate predicateWithFormat:condition];
-    self.whereClauses = [[NSArray alloc] initWithObjects:predicate, nil];
-    return self;
+    NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
+    
+    return q;
 }
 
 -(id)first
@@ -135,8 +157,9 @@
 
 -(id)firstOrDefault
 {
-    self.takeCount = 1;
-    NSArray* results = [self toArray];
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:1 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
+    
+    NSArray* results = [q toArray];
     if(results.count > 0)
         return [results objectAtIndex:0];
     else
