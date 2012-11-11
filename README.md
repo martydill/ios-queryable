@@ -5,10 +5,11 @@ It supports query composition and deferred execution, and implements a subset of
 
 It lets you write code like this:
 ```objc
-NSArray* widgets = [[[[self.managedObjectContext ofType:@"Widget"]
+NSArray* widgets = [[[[[self.managedObjectContext ofType:@"Widget"]
 			where:@"Type == 'abc'"]
 			orderBy:@"createddate"]
-			take:5];
+			take:5]
+                        toArray];
 ```
 
 instead of like this:
