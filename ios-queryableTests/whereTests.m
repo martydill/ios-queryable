@@ -32,4 +32,18 @@
 }
 
 
+- (void)test_multiple_wheres_filters_results
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[context ofType:@"Product"] where:@"name like '*r*'"];
+    queryable = [queryable where:@"name like '*n*'"];
+    
+    NSArray* products = [queryable toArray];
+    Product* firstProduct = (Product*)[products objectAtIndex:0];
+    
+    STAssertEquals(products.count, 1u, @"Expected a single product");
+    STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
+}
+
+
 @end
