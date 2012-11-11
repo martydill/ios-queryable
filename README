@@ -1,0 +1,2 @@
+ios-queryable is an Objective-C category that provides IQueryable and IEnumerable-like functionality to Core Data. It supports query composition and deferred execution, and implements a subset of IEnumerable's methods, such as where, take, skip, and orderBy.
+
