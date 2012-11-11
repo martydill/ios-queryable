@@ -26,6 +26,7 @@
 		40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E32164E2A9C00C0D1E9 /* firstTests.m */; };
 		40710E36164E2BCA00C0D1E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E35164E2BCA00C0D1E9 /* User.m */; };
 		40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */; };
+		40710E3C165020E600C0D1E9 /* whereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E3B165020E600C0D1E9 /* whereTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		40710E35164E2BCA00C0D1E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		40710E37164E2DE300C0D1E9 /* QueryCompositionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCompositionTests.h; sourceTree = "<group>"; };
 		40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCompositionTests.m; sourceTree = "<group>"; };
+		40710E3A165020E600C0D1E9 /* whereTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whereTests.h; sourceTree = "<group>"; };
+		40710E3B165020E600C0D1E9 /* whereTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = whereTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 				40710E2F164DF8E700C0D1E9 /* takeTests.m */,
 				40710E37164E2DE300C0D1E9 /* QueryCompositionTests.h */,
 				40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */,
+				40710E3A165020E600C0D1E9 /* whereTests.h */,
+				40710E3B165020E600C0D1E9 /* whereTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */,
 				40710E36164E2BCA00C0D1E9 /* User.m in Sources */,
 				40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */,
+				40710E3C165020E600C0D1E9 /* whereTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

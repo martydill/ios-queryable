@@ -24,6 +24,8 @@
 @property (strong) NSManagedObjectContext* context;
 @property (strong) NSArray* sorts;
 @property (strong) NSArray* descendingSorts;
+@property (strong) NSArray* whereClauses;
+
 @property int skipCount;
 @property int takeCount;
 
@@ -35,6 +37,7 @@
 @synthesize takeCount;
 @synthesize skipCount;
 @synthesize sorts;
+@synthesize whereClauses;
 @synthesize context;
 @synthesize fetchRequest;
 @synthesize descendingSorts;
@@ -82,6 +85,10 @@
     
     [self.fetchRequest setFetchOffset:self.skipCount];
     [self.fetchRequest setFetchLimit:self.takeCount];
+    
+    if(self.whereClauses != nil)
+        self.fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
+    
     NSArray* results = [self.context executeFetchRequest:self.fetchRequest error:&error];
     return results;
 }
@@ -107,6 +114,13 @@
 -(IQueryable*) take:(int)numberToTake
 {
     self.takeCount = numberToTake;
+    return self;
+}
+
+-(IQueryable*)where:(NSString*)condition
+{
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition];
+    self.whereClauses = [[NSArray alloc] initWithObjects:predicate, nil];
     return self;
 }
 

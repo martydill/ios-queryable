@@ -28,6 +28,8 @@
 
 -(id)firstOrDefault;
 
+-(IQueryable*) where:(NSString*)condition;
+
 @end
 
 
