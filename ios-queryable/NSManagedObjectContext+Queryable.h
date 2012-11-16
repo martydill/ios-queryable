@@ -12,7 +12,7 @@
 
 @interface IQueryable : NSObject
 
--(id)initWithType:(NSString*)type context:(NSManagedObject*)theContext;
+-(id)initWithType:(NSString*)type context:(NSManagedObjectContext*)theContext;
 
 -(NSArray*) toArray;
 
