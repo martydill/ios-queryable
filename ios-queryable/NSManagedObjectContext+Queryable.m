@@ -136,13 +136,17 @@
     return q;
 }
 
--(IQueryable*)where:(NSString*)condition
+-(IQueryable*)where:(NSString*)condition, ...
 {
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition];
+    va_list args;
+    va_start(args, condition);
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition arguments:args];
     NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
     
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
     
+    va_end(args);
     return q;
 }
 

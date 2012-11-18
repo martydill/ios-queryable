@@ -31,7 +31,6 @@
     STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
 }
 
-
 - (void)test_multiple_wheres_filters_results
 {
     NSManagedObjectContext* context = [self getContext];
@@ -45,5 +44,16 @@
     STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
 }
 
-
+- (void)test_where_with_variables_filters_results
+{
+    NSManagedObjectContext* context = [self getContext];
+    NSString* name = @"Banana";
+    IQueryable* queryable = [[context ofType:@"Product"] where:@"name = %@", name];
+    	
+    NSArray* products = [queryable toArray];
+    Product* firstProduct = (Product*)[products objectAtIndex:0];
+    
+    STAssertEquals(products.count, 1u, @"Expected a single product");
+    STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
+}
 @end

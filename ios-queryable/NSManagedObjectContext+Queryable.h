@@ -28,7 +28,7 @@
 
 -(id)firstOrDefault;
 
--(IQueryable*) where:(NSString*)condition;
+-(IQueryable*) where:(NSString*)condition, ...;
 
 @end
 
