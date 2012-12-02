@@ -151,25 +151,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374359436.664299"
+         timestampString = "376115763.445615"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
-         landmarkName = "-toArray"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "-initWithType:context:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "374359506.807301"
+         filePath = "ios-queryableTests/countTests.m"
+         timestampString = "376115939.608945"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-initWithType:context:"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
+         landmarkName = "-test_count_returns_correct_number_of_records_when_filtered"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -28,6 +28,8 @@
 @property int takeCount;
 @property (strong) NSString* type;
 
+-(NSFetchRequest*) getFetchRequest;
+
 @end
 
 
@@ -54,7 +56,7 @@
     return self;
 }
 
--(id)initWithType:(NSString*)entityType context:(NSManagedObjectContext*)theContext take:(int)newTake skip:(int)newSkip sorts:(NSArray*)newSorts whereClauses:(NSArray*)newWhereClauses
+-(id) initWithType:(NSString*)entityType context:(NSManagedObjectContext*)theContext take:(int)newTake skip:(int)newSkip sorts:(NSArray*)newSorts whereClauses:(NSArray*)newWhereClauses
 {
     self = [super init];
     if(self != nil)
@@ -70,35 +72,19 @@
     return self;
 }
 
--(NSArray*)toArray
+-(NSArray*) toArray
 {
     if(self.takeCount <= 0)
         return [[NSArray alloc] init];
     
-    int skip = MAX(self.skipCount, 0);
-
+    
+    NSFetchRequest* fetchRequest = [self getFetchRequest];
     NSError* error = nil;
-    
-    NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:self.type
-                                              inManagedObjectContext:self.context];
-    
-    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:entityDescription];
-
-    fetchRequest.sortDescriptors = self.sorts;
-    
-    [fetchRequest setFetchOffset:skip];
-    [fetchRequest setFetchLimit:self.takeCount];
-    
-    if(self.whereClauses != nil)
-        fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
-    
     NSArray* results = [self.context executeFetchRequest:fetchRequest error:&error];
     return results;
 }
 
--(NSArray*)add:(id)object toArray:(NSArray*)array
+-(NSArray*) add:(id)object toArray:(NSArray*)array
 {
     NSMutableArray* a = [NSMutableArray arrayWithArray:array];
     return [a arrayByAddingObject:object];
@@ -136,7 +122,7 @@
     return q;
 }
 
--(IQueryable*)where:(NSString*)condition, ...
+-(IQueryable*) where:(NSString*)condition, ...
 {
     va_list args;
     va_start(args, condition);
@@ -150,7 +136,30 @@
     return q;
 }
 
--(id)first
+-(int) count
+{
+    NSFetchRequest* fetchRequest = [self getFetchRequest];
+    int theCount = [self.context countForFetchRequest:fetchRequest error:nil];
+    return theCount;
+}
+
+-(int) count:(NSString*)condition, ...
+{
+    va_list args;
+    va_start(args, condition);
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition arguments:args];
+    NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
+    
+    va_end(args);
+    
+    int theCount = [q count];
+    return theCount;
+}
+
+-(id) first
 {
     id result = [self firstOrDefault];
     if(!result)
@@ -159,7 +168,7 @@
     return result;
 }
 
--(id)firstOrDefault
+-(id) firstOrDefault
 {
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:1 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
     
@@ -168,6 +177,28 @@
         return [results objectAtIndex:0];
     else
         return nil;
+}
+
+-(NSFetchRequest*) getFetchRequest
+{
+    int skip = MAX(self.skipCount, 0);
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:self.type
+                                              inManagedObjectContext:self.context];
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:entityDescription];
+    
+    fetchRequest.sortDescriptors = self.sorts;
+    
+    [fetchRequest setFetchOffset:skip];
+    [fetchRequest setFetchLimit:self.takeCount];
+    
+    if(self.whereClauses != nil)
+        fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
+    
+    return fetchRequest;
 }
 
 @end

@@ -30,6 +30,10 @@
 
 -(IQueryable*) where:(NSString*)condition, ...;
 
+-(int) count;
+
+-(int) count:(NSString*)condition, ...;
+
 @end
 
 
