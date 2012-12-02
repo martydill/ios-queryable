@@ -182,6 +182,22 @@
     return result;
 }
 
+-(id) first:(NSString*)condition, ...
+{
+    va_list args;
+    va_start(args, condition);
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition arguments:args];
+    NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
+    
+    va_end(args);
+    
+    id theFirst = [q first];
+    return theFirst;
+}
+
 -(id) firstOrDefault
 {
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:1 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
@@ -191,6 +207,22 @@
         return [results objectAtIndex:0];
     else
         return nil;
+}
+
+-(id) firstOrDefault:(NSString *)condition, ...
+{
+    va_list args;
+    va_start(args, condition);
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:condition arguments:args];
+    NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
+    
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
+    
+    va_end(args);
+    
+    id theFirstOrDefault = [q firstOrDefault];
+    return theFirstOrDefault;
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len

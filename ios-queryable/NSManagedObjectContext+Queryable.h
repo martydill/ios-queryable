@@ -26,7 +26,11 @@
 
 -(id)first;
 
+-(id)first:(NSString*)condition;
+
 -(id)firstOrDefault;
+
+-(id)firstOrDefault:(NSString*)condition, ...;
 
 -(IQueryable*) where:(NSString*)condition, ...;
 

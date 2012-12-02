@@ -177,12 +177,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "376118683.622239"
+         timestampString = "376127765.639031"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "198"
-         endingLineNumber = "198"
-         landmarkName = "-countByEnumeratingWithState:objects::count:"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
+         landmarkName = "-countByEnumeratingWithState:objects:count:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
