@@ -159,6 +159,20 @@
     return theCount;
 }
 
+-(bool)any
+{
+    int count = [self count];
+    bool hasAny = count > 0;
+    return hasAny;
+}
+
+-(bool) any:(NSString*)condition, ...
+{
+    int count = [self count:condition];
+    bool hasAny = count > 0;
+    return hasAny;
+}
+
 -(id) first
 {
     id result = [self firstOrDefault];

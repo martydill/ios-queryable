@@ -34,6 +34,10 @@
 
 -(int) count:(NSString*)condition, ...;
 
+-(bool) any;
+
+-(bool) any:(NSString*)condition, ...;
+
 @end
 
 
