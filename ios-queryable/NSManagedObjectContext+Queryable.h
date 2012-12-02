@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface IQueryable : NSObject
+@interface IQueryable : NSObject<NSFastEnumeration>
 
 -(id)initWithType:(NSString*)type context:(NSManagedObjectContext*)theContext;
 

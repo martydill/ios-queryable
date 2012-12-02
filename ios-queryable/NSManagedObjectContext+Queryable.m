@@ -193,6 +193,13 @@
         return nil;
 }
 
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
+{
+    NSArray* items = [self toArray];
+    int count = [items countByEnumeratingWithState:state objects:stackbuf count:len];
+    return count;
+}
+
 -(NSFetchRequest*) getFetchRequest
 {
     int skip = MAX(self.skipCount, 0);
