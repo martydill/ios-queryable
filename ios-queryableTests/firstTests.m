@@ -11,7 +11,6 @@
 
 @implementation firstTests
 
-
 - (void)test_first_returns_object_if_object_exists
 {
     NSManagedObjectContext* context = [self getContext];

@@ -17,6 +17,7 @@
 		4045EDA8166AC5B600FCEBDB /* countTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDA7166AC5B600FCEBDB /* countTests.m */; };
 		4045EDAC166B138500FCEBDB /* anyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDAB166B138500FCEBDB /* anyTests.m */; };
 		4045EDAF166B18C400FCEBDB /* fastEnumerationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDAE166B18C400FCEBDB /* fastEnumerationTests.m */; };
+		4045EDB2166C273400FCEBDB /* singleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDB1166C273400FCEBDB /* singleTests.m */; };
 		40710E06164CA30E00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
 		40710E07164CA31F00C0D1E9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40710E05164CA30E00C0D1E9 /* CoreData.framework */; };
 		40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */; };
@@ -72,6 +73,8 @@
 		4045EDAB166B138500FCEBDB /* anyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = anyTests.m; sourceTree = "<group>"; };
 		4045EDAD166B18C400FCEBDB /* fastEnumerationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fastEnumerationTests.h; sourceTree = "<group>"; };
 		4045EDAE166B18C400FCEBDB /* fastEnumerationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fastEnumerationTests.m; sourceTree = "<group>"; };
+		4045EDB0166C273300FCEBDB /* singleTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleTests.h; sourceTree = "<group>"; };
+		4045EDB1166C273400FCEBDB /* singleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = singleTests.m; sourceTree = "<group>"; };
 		40710E05164CA30E00C0D1E9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		40710E08164CA9EF00C0D1E9 /* ofTypeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofTypeTests.h; sourceTree = "<group>"; };
 		40710E09164CA9EF00C0D1E9 /* ofTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ofTypeTests.m; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				4045EDAB166B138500FCEBDB /* anyTests.m */,
 				4045EDAD166B18C400FCEBDB /* fastEnumerationTests.h */,
 				4045EDAE166B18C400FCEBDB /* fastEnumerationTests.m */,
+				4045EDB0166C273300FCEBDB /* singleTests.h */,
+				4045EDB1166C273400FCEBDB /* singleTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				4045EDA8166AC5B600FCEBDB /* countTests.m in Sources */,
 				4045EDAC166B138500FCEBDB /* anyTests.m in Sources */,
 				4045EDAF166B18C400FCEBDB /* fastEnumerationTests.m in Sources */,
+				4045EDB2166C273400FCEBDB /* singleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

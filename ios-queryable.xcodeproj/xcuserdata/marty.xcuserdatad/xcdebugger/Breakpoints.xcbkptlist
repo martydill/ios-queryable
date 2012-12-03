@@ -177,12 +177,77 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ios-queryable/NSManagedObjectContext+Queryable.m"
-         timestampString = "376127928.662735"
+         timestampString = "376187728.551526"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "203"
-         endingLineNumber = "203"
+         startingLineNumber = "240"
+         endingLineNumber = "240"
          landmarkName = "-countByEnumeratingWithState:objects:count:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryableTests/singleTests.m"
+         timestampString = "376188089.31123"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-test_single_throws_exception_if_more_than_one_object"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryableTests/singleTests.m"
+         timestampString = "376188123.721927"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
+         landmarkName = "-test_single_throws_exception_if_more_than_one_object"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryableTests/singleTests.m"
+         timestampString = "376188206.153723"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
+         landmarkName = "-test_singleOrDefault_throws_exception_if_more_than_one_record"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryableTests/singleTests.m"
+         timestampString = "376188567.816976"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
+         landmarkName = "-test_singleOrDefault_throws_exception_if_more_than_one_record"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ios-queryableTests/singleTests.m"
+         timestampString = "376188700.703759"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
+         landmarkName = "-test_single_with_predicate_returns_object_if_object_exists"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

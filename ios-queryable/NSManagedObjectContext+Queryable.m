@@ -198,6 +198,43 @@
     return theFirstOrDefault;
 }
 
+-(id) single
+{
+    id result = [self singleOrDefault];
+    if(!result)
+        [NSException raise:@"The source sequence is empty" format:@""];
+    return result;
+}
+
+-(id) single:(NSString*)condition, ...
+{
+    IQueryable* q = [self where:condition];
+    id theSingle = [q single];
+    return theSingle;
+}
+
+-(id) singleOrDefault
+{
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:2 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
+
+    NSArray* results = [q toArray];
+    if(results.count == 0)
+        return nil;
+    else if(results.count == 1)
+        return [results objectAtIndex:0];
+    else
+        [NSException raise:@"The source sequence contains more than one element" format:@""];
+    
+    return nil; // We'll never get here, but without it we get a warning about control reaching the end of a non-void function. Thanks, Xcode.
+}
+
+-(id) singleOrDefault:(NSString *)condition, ...
+{
+    IQueryable* q = [self where:condition];
+    id theSingleOrDefault = [q singleOrDefault];
+    return theSingleOrDefault;
+}
+
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
 {
     NSArray* items = [self toArray];
