@@ -50,6 +50,8 @@
 
 -(bool) any:(NSString*)condition, ...;
 
+-(bool) all:(NSString*)condition, ...;
+
 @end
 
 

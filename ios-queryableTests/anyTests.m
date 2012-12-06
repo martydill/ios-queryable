@@ -12,7 +12,7 @@
 
 @implementation anyTests
 
-- (void)test_any_returns_correct_number_of_records_when_unfiltered
+- (void)test_any_returns_true_when_unfiltered
 {
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [context ofType:@"Product"];

@@ -9,6 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <CoreData/CoreData.h>
 #import "NSManagedObjectContext+Queryable.h"
+#import "Product.h"
 
 @interface BaseTest : SenTestCase
 

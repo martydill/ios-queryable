@@ -164,6 +164,14 @@
     return hasAny;
 }
 
+-(bool) all:(NSString*)condition, ...
+{
+    int conditionCount = [self count:condition];
+    int totalCount = [self count];
+    bool doAllMatch = conditionCount == totalCount;
+    return doAllMatch;
+}
+
 -(id) first
 {
     id result = [self firstOrDefault];
