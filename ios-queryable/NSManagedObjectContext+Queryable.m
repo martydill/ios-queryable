@@ -243,6 +243,24 @@
     return theSingleOrDefault;
 }
 
+-(float) average:(NSString*)property
+{
+    NSExpression* keyPathExpression = [NSExpression expressionForKeyPath:property];
+    NSExpression* exp = [NSExpression expressionForFunction:@"average:" arguments:[NSArray arrayWithObject:keyPathExpression]];
+
+    NSExpressionDescription* expressionDescription = [[NSExpressionDescription alloc] init];
+    [expressionDescription setName:@"avg"];
+    [expressionDescription setExpression:exp];
+    [expressionDescription setExpressionResultType:NSFloatAttributeType];
+
+    NSFetchRequest* r = [self getFetchRequest];
+    [r setResultType:NSDictionaryResultType];
+    [r setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    id a = [self.context executeFetchRequest:r error:nil];
+    NSDictionary* results = [  a objectAtIndex:0];
+    return [[results objectForKey:@"avg"] floatValue];
+}
+
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
 {
     NSArray* items = [self toArray];

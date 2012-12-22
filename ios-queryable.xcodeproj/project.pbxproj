@@ -32,6 +32,7 @@
 		40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E32164E2A9C00C0D1E9 /* firstTests.m */; };
 		40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */; };
 		40710E3C165020E600C0D1E9 /* whereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E3B165020E600C0D1E9 /* whereTests.m */; };
+		62DD4DBE5314207A2F0A9DA3 /* averageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD4F000D2F4335EBCB7FEC /* averageTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCompositionTests.m; sourceTree = "<group>"; };
 		40710E3A165020E600C0D1E9 /* whereTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whereTests.h; sourceTree = "<group>"; };
 		40710E3B165020E600C0D1E9 /* whereTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = whereTests.m; sourceTree = "<group>"; };
+		62DD47F29CB429A8006FEE70 /* averageTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = averageTests.h; sourceTree = "<group>"; };
+		62DD4F000D2F4335EBCB7FEC /* averageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = averageTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				4045EDB1166C273400FCEBDB /* singleTests.m */,
 				4045EDBA16705FE500FCEBDB /* allTests.h */,
 				4045EDBB16705FE500FCEBDB /* allTests.m */,
+				62DD47F29CB429A8006FEE70 /* averageTests.h */,
+				62DD4F000D2F4335EBCB7FEC /* averageTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				4045EDBC16705FE500FCEBDB /* allTests.m in Sources */,
 				40384E9D16803E290098575A /* User.m in Sources */,
 				40384EA016803E290098575A /* Product.m in Sources */,
+				62DD4DBE5314207A2F0A9DA3 /* averageTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

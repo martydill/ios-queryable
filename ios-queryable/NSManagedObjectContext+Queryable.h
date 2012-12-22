@@ -52,6 +52,8 @@
 
 -(bool) all:(NSString*)condition, ...;
 
+-(float) average:(NSString*)property;
+
 @end
 
 
