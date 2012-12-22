@@ -14,6 +14,8 @@
 		402E0FCA164B83C2004D3D9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 402E0FC8164B83C2004D3D9C /* InfoPlist.strings */; };
 		402E0FCD164B83C2004D3D9C /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FCC164B83C2004D3D9C /* BaseTest.m */; };
 		402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 402E0FD6164B8492004D3D9C /* TestModel.xcdatamodeld */; };
+		40384E9D16803E290098575A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 40384E9C16803E290098575A /* User.m */; };
+		40384EA016803E290098575A /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 40384E9F16803E290098575A /* Product.m */; };
 		4045EDA8166AC5B600FCEBDB /* countTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDA7166AC5B600FCEBDB /* countTests.m */; };
 		4045EDAC166B138500FCEBDB /* anyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDAB166B138500FCEBDB /* anyTests.m */; };
 		4045EDAF166B18C400FCEBDB /* fastEnumerationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045EDAE166B18C400FCEBDB /* fastEnumerationTests.m */; };
@@ -25,11 +27,9 @@
 		40710E20164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */; };
 		40710E21164CB77900C0D1E9 /* libios-queryable.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAB164B83C2004D3D9C /* libios-queryable.a */; };
 		40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E23164CD03300C0D1E9 /* orderByTests.m */; };
-		40710E2A164CD58300C0D1E9 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E29164CD58300C0D1E9 /* Product.m */; };
 		40710E2D164DF60300C0D1E9 /* skipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E2C164DF60300C0D1E9 /* skipTests.m */; };
 		40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E2F164DF8E700C0D1E9 /* takeTests.m */; };
 		40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E32164E2A9C00C0D1E9 /* firstTests.m */; };
-		40710E36164E2BCA00C0D1E9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E35164E2BCA00C0D1E9 /* User.m */; };
 		40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */; };
 		40710E3C165020E600C0D1E9 /* whereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E3B165020E600C0D1E9 /* whereTests.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +68,10 @@
 		402E0FCB164B83C2004D3D9C /* BaseTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTest.h; sourceTree = "<group>"; };
 		402E0FCC164B83C2004D3D9C /* BaseTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTest.m; sourceTree = "<group>"; };
 		402E0FD7164B8492004D3D9C /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		40384E9B16803E290098575A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		40384E9C16803E290098575A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		40384E9E16803E290098575A /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		40384E9F16803E290098575A /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		4045EDA6166AC5B600FCEBDB /* countTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countTests.h; sourceTree = "<group>"; };
 		4045EDA7166AC5B600FCEBDB /* countTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = countTests.m; sourceTree = "<group>"; };
 		4045EDAA166B138500FCEBDB /* anyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = anyTests.h; sourceTree = "<group>"; };
@@ -85,16 +89,12 @@
 		40710E1F164CB75D00C0D1E9 /* NSManagedObjectContext+Queryable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Queryable.m"; sourceTree = "<group>"; };
 		40710E22164CD03300C0D1E9 /* orderByTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderByTests.h; sourceTree = "<group>"; };
 		40710E23164CD03300C0D1E9 /* orderByTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderByTests.m; sourceTree = "<group>"; };
-		40710E28164CD58300C0D1E9 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		40710E29164CD58300C0D1E9 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		40710E2B164DF60300C0D1E9 /* skipTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skipTests.h; sourceTree = "<group>"; };
 		40710E2C164DF60300C0D1E9 /* skipTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = skipTests.m; sourceTree = "<group>"; };
 		40710E2E164DF8E700C0D1E9 /* takeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = takeTests.h; sourceTree = "<group>"; };
 		40710E2F164DF8E700C0D1E9 /* takeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = takeTests.m; sourceTree = "<group>"; };
 		40710E31164E2A9C00C0D1E9 /* firstTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstTests.h; sourceTree = "<group>"; };
 		40710E32164E2A9C00C0D1E9 /* firstTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstTests.m; sourceTree = "<group>"; };
-		40710E34164E2BCA00C0D1E9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		40710E35164E2BCA00C0D1E9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		40710E37164E2DE300C0D1E9 /* QueryCompositionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryCompositionTests.h; sourceTree = "<group>"; };
 		40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCompositionTests.m; sourceTree = "<group>"; };
 		40710E3A165020E600C0D1E9 /* whereTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whereTests.h; sourceTree = "<group>"; };
@@ -222,10 +222,10 @@
 		402E0FDC164B84F0004D3D9C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				40710E34164E2BCA00C0D1E9 /* User.h */,
-				40710E35164E2BCA00C0D1E9 /* User.m */,
-				40710E28164CD58300C0D1E9 /* Product.h */,
-				40710E29164CD58300C0D1E9 /* Product.m */,
+				40384E9E16803E290098575A /* Product.h */,
+				40384E9F16803E290098575A /* Product.m */,
+				40384E9B16803E290098575A /* User.h */,
+				40384E9C16803E290098575A /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -340,11 +340,9 @@
 				402E0FD8164B8492004D3D9C /* TestModel.xcdatamodeld in Sources */,
 				40710E0A164CA9EF00C0D1E9 /* ofTypeTests.m in Sources */,
 				40710E24164CD03300C0D1E9 /* orderByTests.m in Sources */,
-				40710E2A164CD58300C0D1E9 /* Product.m in Sources */,
 				40710E2D164DF60300C0D1E9 /* skipTests.m in Sources */,
 				40710E30164DF8E800C0D1E9 /* takeTests.m in Sources */,
 				40710E33164E2A9C00C0D1E9 /* firstTests.m in Sources */,
-				40710E36164E2BCA00C0D1E9 /* User.m in Sources */,
 				40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */,
 				40710E3C165020E600C0D1E9 /* whereTests.m in Sources */,
 				4045EDA8166AC5B600FCEBDB /* countTests.m in Sources */,
@@ -352,6 +350,8 @@
 				4045EDAF166B18C400FCEBDB /* fastEnumerationTests.m in Sources */,
 				4045EDB2166C273400FCEBDB /* singleTests.m in Sources */,
 				4045EDBC16705FE500FCEBDB /* allTests.m in Sources */,
+				40384E9D16803E290098575A /* User.m in Sources */,
+				40384EA016803E290098575A /* Product.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Product.h
 //  ios-queryable
 //
-//  Created by Marty on 2012-11-08.
+//  Created by Marty on 2012-12-17.
 //  Copyright (c) 2012 Marty. All rights reserved.
 //
 
@@ -12,8 +12,10 @@
 
 @interface Product : NSManagedObject
 
-@property (nonatomic) NSTimeInterval created_on;
-@property (nonatomic) int32_t id;
+@property (nonatomic, retain) NSDate * created_on;
+@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * price;
+@property (nonatomic, retain) NSNumber * quantity;
 
 @end

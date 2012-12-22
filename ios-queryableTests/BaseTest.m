@@ -12,42 +12,71 @@
 
 @implementation BaseTest
 
+static bool initialized = false;
+static NSArray* seedData;
+static NSManagedObjectContext* context;
+
 @synthesize testProductData;
 
--(void)seedTestData:(NSManagedObjectContext*)context
++ (void)seedTestData
 {
     NSMutableArray* products = [[NSMutableArray alloc] init];
     NSArray* names = [[NSArray alloc] initWithObjects:@"Peach", @"Apple", @"Banana", @"Orange", @"Strawberry", nil];
-    for(NSString* name in names)
+    NSArray* quantities = [[NSArray alloc] initWithObjects:@3, @5, @7, @4, @11, nil];
+    NSArray* prices = [[NSArray alloc] initWithObjects:@1.1, @2.2, @3.3, @4.4, @5.5, nil];
+
+    for (int i = 0; i < names.count; ++i)
     {
         Product* product = [NSEntityDescription
-                               insertNewObjectForEntityForName:@"Product"
-                               inManagedObjectContext:context];
-        product.name = name;
-        //product.created_on = [NSDate dateWithTimeIntervalSinceNow:1000];
-        
+                insertNewObjectForEntityForName:@"Product"
+                         inManagedObjectContext:context];
+        product.name = [names objectAtIndex:i];
+        product.quantity = [quantities objectAtIndex:i];
+        product.price = [prices objectAtIndex:i];
+
         [products addObject:product];
     }
+
+    seedData = products;
     
     [context save:nil];
-    
-    self.testProductData = products;
 }
 
--(NSManagedObjectContext*)getContext
+- (NSManagedObjectContext*)getContext
 {
-    NSBundle* bundle = [NSBundle bundleWithIdentifier:@"org.codeninja.ios-queryable.tests"];
-    
-    NSManagedObjectModel* managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:bundle]];
-    
-    NSPersistentStoreCoordinator* persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
-    NSPersistentStore* store = [persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:0];
-    
-    NSManagedObjectContext* context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    context.persistentStoreCoordinator = persistentStoreCoordinator;
+    if(!initialized)
+    {
+        initialized = true;
+        NSBundle* bundle = [NSBundle bundleWithIdentifier:@"org.codeninja.ios-queryable.tests"];
 
-    [self seedTestData:context];
+        NSManagedObjectModel* managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:bundle]];
+
+        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ios-queryable-tests.sqlite"];
+
+        if([[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
+            [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        
+        NSError* error = nil;
+        NSPersistentStoreCoordinator* persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+        [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+
+        context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        context.persistentStoreCoordinator = persistentStoreCoordinator;
+
+        [BaseTest seedTestData];
+    }
+    
+    self.testProductData = seedData;
     return context;
+}
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    // This is lame. but it makes the unit tests work. The other ones fail.
+    return [NSURL fileURLWithPath:@"/var/tmp/"];
+    // return [NSURL fileURLWithPath:[[NSFileManager defaultManager] currentDirectoryPath]];
+    // return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end
