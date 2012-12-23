@@ -52,7 +52,9 @@
 
 -(bool) all:(NSString*)condition, ...;
 
--(float) average:(NSString*)property;
+-(double) average:(NSString*)property;
+
+- (double)sum:(NSString*)propertyName;
 
 @end
 

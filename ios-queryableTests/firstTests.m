@@ -34,7 +34,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
     
-    Product* product = [queryable first];
+    [queryable first];
     NSArray* allProducts = [queryable toArray];
     STAssertEquals(allProducts.count, self.testProductData.count, @"Expected an equal number of products");
 }

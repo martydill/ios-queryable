@@ -243,28 +243,40 @@
     return theSingleOrDefault;
 }
 
--(float) average:(NSString*)property
+-(double) average:(NSString*)property
+{
+    double avg = [self getExpressionValue:property function:@"average:"];
+    return avg;
+}
+
+- (double) sum:(NSString*)propertyName
+{
+    double result = [self getExpressionValue:propertyName function:@"sum:"];
+    return result;
+}
+
+- (double) getExpressionValue:(NSString*)property function:(NSString*)function
 {
     NSExpression* keyPathExpression = [NSExpression expressionForKeyPath:property];
-    NSExpression* exp = [NSExpression expressionForFunction:@"average:" arguments:[NSArray arrayWithObject:keyPathExpression]];
+    NSExpression* exp = [NSExpression expressionForFunction:function arguments:[NSArray arrayWithObject:keyPathExpression]];
 
     NSExpressionDescription* expressionDescription = [[NSExpressionDescription alloc] init];
-    [expressionDescription setName:@"avg"];
+    [expressionDescription setName:@"expressionValue"];
     [expressionDescription setExpression:exp];
     [expressionDescription setExpressionResultType:NSFloatAttributeType];
 
-    NSFetchRequest* r = [self getFetchRequest];
-    [r setResultType:NSDictionaryResultType];
-    [r setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
-    id a = [self.context executeFetchRequest:r error:nil];
-    NSDictionary* results = [  a objectAtIndex:0];
-    return [[results objectForKey:@"avg"] floatValue];
+    NSFetchRequest* request = [self getFetchRequest];
+    [request setResultType:NSDictionaryResultType];
+    [request setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    NSArray* fetchResultsArray = [self.context executeFetchRequest:request error:nil];
+    NSDictionary* fetchResultsDictionary = [fetchResultsArray objectAtIndex:0];
+    return [[fetchResultsDictionary objectForKey:@"expressionValue"] floatValue];
 }
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
 {
     NSArray* items = [self toArray];
-    int count = [items countByEnumeratingWithState:state objects:stackbuf count:len];
+    uint count = [items countByEnumeratingWithState:state objects:stackbuf count:len];
     return count;
 }
 
@@ -289,5 +301,6 @@
     
     return fetchRequest;
 }
+
 
 @end
