@@ -10,27 +10,27 @@
 
 @implementation averageTests
 
-- (void)test_average_returns_average_for_int_field
+-(void) test_average_returns_average_for_int_field
 {
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [context ofType:@"Product"];
-    
+
     int avg = (int)[queryable average:@"quantity"];
 
     STAssertEquals(avg, 6, @"Expected average of 6");
 }
 
-- (void)test_average_returns_average_for_float_field
+-(void) test_average_returns_average_for_float_field
 {
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [context ofType:@"Product"];
 
-    float avg = [queryable average:@"price"];
+    double avg = [queryable average:@"price"];
 
-    STAssertEquals(avg, 3.3f, @"Expected average of 3.3");
+    [self assertDouble:avg isEqualToDouble:3.3 message:@"Expected average of 3.3"];
 }
 
-- (void)test_average_returns_average_when_filtered
+-(void) test_average_returns_average_when_filtered
 {
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] where:@"name like '*n*'"]; // banana and orange
