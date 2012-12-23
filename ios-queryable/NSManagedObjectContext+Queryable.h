@@ -54,7 +54,11 @@
 
 -(double) average:(NSString*)property;
 
-- (double)sum:(NSString*)propertyName;
+-(double) sum:(NSString*)propertyName;
+
+-(double) min:(NSString*)propertyName;
+
+-(double) max:(NSString*)propertyName;
 
 @end
 

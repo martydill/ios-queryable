@@ -255,6 +255,18 @@
     return result;
 }
 
+- (double) min:(NSString*)propertyName
+{
+    double result = [self getExpressionValue:propertyName function:@"min:"];
+    return result;
+}
+
+- (double) max:(NSString*)propertyName
+{
+    double result = [self getExpressionValue:propertyName function:@"max:"];
+    return result;
+}
+
 - (double) getExpressionValue:(NSString*)property function:(NSString*)function
 {
     NSExpression* keyPathExpression = [NSExpression expressionForKeyPath:property];

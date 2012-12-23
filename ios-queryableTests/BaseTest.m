@@ -79,4 +79,10 @@ static NSManagedObjectContext* context;
     // return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+- (void)assertDouble:(double)a isEqualToDouble:(float)b message:(NSString*)message
+{
+    bool equal = fabs(a - b) < epsilon;
+    STAssertTrue(equal, message);
+}
+
 @end

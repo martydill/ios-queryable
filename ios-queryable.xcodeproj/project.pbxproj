@@ -33,6 +33,7 @@
 		40710E39164E2DE300C0D1E9 /* QueryCompositionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */; };
 		40710E3C165020E600C0D1E9 /* whereTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40710E3B165020E600C0D1E9 /* whereTests.m */; };
 		62DD47732ECBB3E0B0DCB6AD /* sumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD4B24AC7BAC8D4F8666A7 /* sumTests.m */; };
+		62DD4D01A2BACE096CBA5E58 /* minMaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD4620B06463E743153E0B /* minMaxTests.m */; };
 		62DD4DBE5314207A2F0A9DA3 /* averageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62DD4F000D2F4335EBCB7FEC /* averageTests.m */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +102,9 @@
 		40710E38164E2DE300C0D1E9 /* QueryCompositionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryCompositionTests.m; sourceTree = "<group>"; };
 		40710E3A165020E600C0D1E9 /* whereTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whereTests.h; sourceTree = "<group>"; };
 		40710E3B165020E600C0D1E9 /* whereTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = whereTests.m; sourceTree = "<group>"; };
+		62DD4620B06463E743153E0B /* minMaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = minMaxTests.m; sourceTree = "<group>"; };
 		62DD47F29CB429A8006FEE70 /* averageTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = averageTests.h; sourceTree = "<group>"; };
+		62DD481E538C11C6EDB68562 /* minMaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = minMaxTests.h; sourceTree = "<group>"; };
 		62DD494867E79633931E7631 /* sumTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sumTests.h; sourceTree = "<group>"; };
 		62DD4B24AC7BAC8D4F8666A7 /* sumTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sumTests.m; sourceTree = "<group>"; };
 		62DD4F000D2F4335EBCB7FEC /* averageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = averageTests.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				62DD4F000D2F4335EBCB7FEC /* averageTests.m */,
 				62DD4B24AC7BAC8D4F8666A7 /* sumTests.m */,
 				62DD494867E79633931E7631 /* sumTests.h */,
+				62DD481E538C11C6EDB68562 /* minMaxTests.h */,
+				62DD4620B06463E743153E0B /* minMaxTests.m */,
 			);
 			path = "ios-queryableTests";
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				40384EA016803E290098575A /* Product.m in Sources */,
 				62DD4DBE5314207A2F0A9DA3 /* averageTests.m in Sources */,
 				62DD47732ECBB3E0B0DCB6AD /* sumTests.m in Sources */,
+				62DD4D01A2BACE096CBA5E58 /* minMaxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,14 @@
 #import "NSManagedObjectContext+Queryable.h"
 #import "Product.h"
 
+static float const epsilon = 0.000001;
+
 @interface BaseTest : SenTestCase
+
+@property (strong) NSArray* testProductData;
 
 -(NSManagedObjectContext*)getContext;
 
-@property (strong) NSArray* testProductData;
+-(void) assertDouble:(double)a isEqualToDouble:(float)b message:(NSString*)message;
 
 @end
