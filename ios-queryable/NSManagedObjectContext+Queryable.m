@@ -76,8 +76,7 @@
 {
     if(self.takeCount <= 0)
         return [[NSArray alloc] init];
-    
-    
+
     NSFetchRequest* fetchRequest = [self getFetchRequest];
     NSError* error = nil;
     NSArray* results = [self.context executeFetchRequest:fetchRequest error:&error];
@@ -223,7 +222,11 @@
 
 -(id) singleOrDefault
 {
-    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:2 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
+    int howManyShouldITake = MIN(self.takeCount, 2);
+    if(self.takeCount <= 0)
+        howManyShouldITake = 0;
+
+    IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:howManyShouldITake skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
 
     NSArray* results = [q toArray];
     if(results.count == 0)

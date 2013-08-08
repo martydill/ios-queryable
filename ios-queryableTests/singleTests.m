@@ -79,12 +79,30 @@
     STAssertNil([queryable singleOrDefault], @"Expected result to be nil");
 }
 
-- (void)test_singleOrDefault_throws_exception_if_more_than_one_record
+- (void)test_single_throws_exception_if_more_than_one_record
 {
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
     
     STAssertThrows([queryable single], @"Expected an exception to be thrown");
+}
+
+- (void)test_single_does_not_throw_exception_after_take
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[[context ofType:@"Product"] orderBy:@"name"] take:1];
+
+    Product* product = [queryable singleOrDefault];
+    STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
+}
+
+- (void)test_singleOrDefault_does_not_throw_exception_after_take
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[[context ofType:@"Product"] orderBy:@"name"] take:1];
+
+    Product* product = [queryable single];
+    STAssertEqualObjects(product.name, @"Apdple", @"Expected name of Apple");
 }
 
 @end
