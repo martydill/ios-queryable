@@ -29,6 +29,15 @@
     STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
 }
 
+- (void)test_single_with_parametized_predicate_returns_object_if_object_exists
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
+
+    Product* product = [queryable single:@"name = %@", @"Apple"];
+    STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
+}
+
 - (void)test_single_throws_exception_if_object_does_not_exist
 {
     NSManagedObjectContext* context = [self getContext];
@@ -65,9 +74,18 @@
 - (void)test_singleOrDefault_with_predicate_returns_object_if_object_exists
 {
     NSManagedObjectContext* context = [self getContext];
-    IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
+    IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"quantity"];
     
     Product* product = [queryable singleOrDefault:@"name like 'App*'"];
+    STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
+}
+
+- (void)test_singleOrDefault_with_parametized_predicate_returns_object_if_object_exists
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"quantity"];
+
+    Product* product = [queryable singleOrDefault:@"name = %@", @"Apple"];
     STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
 }
 
@@ -102,7 +120,7 @@
     IQueryable* queryable = [[[context ofType:@"Product"] orderBy:@"name"] take:1];
 
     Product* product = [queryable single];
-    STAssertEqualObjects(product.name, @"Apdple", @"Expected name of Apple");
+    STAssertEqualObjects(product.name, @"Apple", @"Expected name of Apple");
 }
 
 @end

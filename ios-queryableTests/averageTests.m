@@ -16,7 +16,6 @@
     IQueryable* queryable = [context ofType:@"Product"];
 
     int avg = (int)[queryable average:@"quantity"];
-
     STAssertEquals(avg, 6, @"Expected average of 6");
 }
 
@@ -26,7 +25,6 @@
     IQueryable* queryable = [context ofType:@"Product"];
 
     double avg = [queryable average:@"price"];
-
     [self assertDouble:avg isEqualToDouble:3.3 message:@"Expected average of 3.3"];
 }
 

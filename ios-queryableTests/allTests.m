@@ -20,6 +20,16 @@
     STAssertTrue(all, @"Expected all to be true");
 }
 
+- (void)test_all_returns_true_when_they_all_match_with_parameters
+{
+    NSManagedObjectContext* context = [self getContext];
+    IQueryable* queryable = [[context ofType:@"Product"] where:@"name like '*a*'"];
+
+    bool all = [queryable all:@"name like %@", @"*a*"];
+
+    STAssertTrue(all, @"Expected all to be true");
+}
+
 - (void)test_all_returns_true_when_sequence_is_empty
 {
     NSManagedObjectContext* context = [self getContext];

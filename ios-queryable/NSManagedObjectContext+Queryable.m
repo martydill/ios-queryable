@@ -20,15 +20,15 @@
 
 @interface IQueryable()
 
-@property (strong) NSManagedObjectContext* context;
-@property (strong) NSArray* sorts;
-@property (strong) NSArray* whereClauses;
+    @property (strong) NSManagedObjectContext* context;
+    @property (strong) NSArray* sorts;
+    @property (strong) NSArray* whereClauses;
 
-@property int skipCount;
-@property int takeCount;
-@property (strong) NSString* type;
+    @property int skipCount;
+    @property int takeCount;
+    @property (strong) NSString* type;
 
--(NSFetchRequest*) getFetchRequest;
+    -(NSFetchRequest*) getFetchRequest;
 
 @end
 
@@ -52,7 +52,7 @@
         self.takeCount = INT32_MAX;
         self.skipCount = 0;
     }
-    
+
     return self;
 }
 
@@ -68,7 +68,7 @@
         self.sorts  = newSorts;
         self.whereClauses = newWhereClauses;
     }
-    
+
     return self;
 }
 
@@ -93,7 +93,7 @@
 {
     NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:fieldName ascending:true];
     NSArray* newSorts = [self add:descriptor toArray:self.sorts];
-    
+
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:newSorts whereClauses:self.whereClauses];
     return q;
 }
@@ -102,7 +102,7 @@
 {
     NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:fieldName ascending:false];
     NSArray* newSorts = [self add:descriptor toArray:self.sorts];
-    
+
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:newSorts whereClauses:self.whereClauses];
     return q;
 }
@@ -117,7 +117,7 @@
 -(IQueryable*) take:(int)numberToTake
 {
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:numberToTake skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
-    
+
     return q;
 }
 
@@ -125,13 +125,21 @@
 {
     va_list args;
     va_start(args, condition);
-    
+
+    IQueryable* q = [self where:condition withArgs:args];
+
+    va_end(args);
+    return q;
+}
+
+
+-(IQueryable*) where:(NSString*)condition withArgs:(va_list)args
+{
     NSPredicate* predicate = [NSPredicate predicateWithFormat:condition arguments:args];
     NSArray* newWheres = [self add:predicate toArray:self.whereClauses];
-    
+
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:self.takeCount skip:self.skipCount sorts:self.sorts whereClauses:newWheres];
-    
-    va_end(args);
+
     return q;
 }
 
@@ -142,10 +150,21 @@
     return theCount;
 }
 
+-(int) count:(NSString*)condition withArgs:(va_list)args
+{
+    IQueryable* q = [self where:condition withArgs:args];
+    int theCount = [q count];
+    return theCount;
+}
+
 -(int) count:(NSString*)condition, ...
 {
-    IQueryable* q = [self where:condition];
-    int theCount = [q count];
+    va_list args;
+    va_start(args, condition);
+
+    int theCount = [self count:condition withArgs:args];
+
+    va_end(args);
     return theCount;
 }
 
@@ -158,16 +177,26 @@
 
 -(bool) any:(NSString*)condition, ...
 {
-    int count = [self count:condition];
+    va_list args;
+    va_start(args, condition);
+
+    int count = [self count:condition withArgs:args];
     bool hasAny = count > 0;
+
+    va_end(args);
     return hasAny;
 }
 
 -(bool) all:(NSString*)condition, ...
 {
-    int conditionCount = [self count:condition];
+    va_list args;
+    va_start(args, condition);
+
+    int conditionCount = [self count:condition withArgs:args];
     int totalCount = [self count];
     bool doAllMatch = conditionCount == totalCount;
+
+    va_end(args);
     return doAllMatch;
 }
 
@@ -176,21 +205,26 @@
     id result = [self firstOrDefault];
     if(!result)
         [NSException raise:@"The source sequence is empty" format:@""];
-    
+
     return result;
 }
 
 -(id) first:(NSString*)condition, ...
 {
-    IQueryable* q = [self where:condition];
+    va_list args;
+    va_start(args, condition);
+
+    IQueryable* q = [self where:condition withArgs: args];
     id theFirst = [q first];
+
+    va_end(args);
     return theFirst;
 }
 
 -(id) firstOrDefault
 {
     IQueryable* q = [[IQueryable alloc] initWithType:self.type context:self.context take:1 skip:self.skipCount sorts:self.sorts whereClauses:self.whereClauses];
-    
+
     NSArray* results = [q toArray];
     if(results.count > 0)
         return [results objectAtIndex:0];
@@ -200,8 +234,13 @@
 
 -(id) firstOrDefault:(NSString *)condition, ...
 {
-    IQueryable* q = [self where:condition];  
+    va_list args;
+    va_start(args, condition);
+
+    IQueryable* q = [self where:condition withArgs:args];
     id theFirstOrDefault = [q firstOrDefault];
+
+    va_end(args);
     return theFirstOrDefault;
 }
 
@@ -215,8 +254,13 @@
 
 -(id) single:(NSString*)condition, ...
 {
-    IQueryable* q = [self where:condition];
+    va_list args;
+    va_start(args, condition);
+
+    IQueryable* q = [self where:condition withArgs:args];
     id theSingle = [q single];
+
+    va_end(args);
     return theSingle;
 }
 
@@ -235,14 +279,19 @@
         return [results objectAtIndex:0];
     else
         [NSException raise:@"The source sequence contains more than one element" format:@""];
-    
+
     return nil; // We'll never get here, but without it we get a warning about control reaching the end of a non-void function. Thanks, Xcode.
 }
 
 -(id) singleOrDefault:(NSString *)condition, ...
 {
-    IQueryable* q = [self where:condition];
+    va_list args;
+    va_start(args, condition);
+
+    IQueryable* q = [self where:condition withArgs:args];
     id theSingleOrDefault = [q singleOrDefault];
+
+    va_end(args);
     return theSingleOrDefault;
 }
 
@@ -298,22 +347,22 @@
 -(NSFetchRequest*) getFetchRequest
 {
     int skip = MAX(self.skipCount, 0);
-    
+
     NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:self.type
-                                              inManagedObjectContext:self.context];
-    
+            entityForName:self.type
+   inManagedObjectContext:self.context];
+
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:entityDescription];
-    
+
     fetchRequest.sortDescriptors = self.sorts;
-    
+
     [fetchRequest setFetchOffset:skip];
     [fetchRequest setFetchLimit:self.takeCount];
-    
+
     if(self.whereClauses != nil)
         fetchRequest.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:self.whereClauses];
-    
+
     return fetchRequest;
 }
 
