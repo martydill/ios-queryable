@@ -19,7 +19,7 @@
     
     int count = [queryable count];
         
-    STAssertEquals(self.testProductData.count, (uint)count, @"Expected count to match the total number of records");
+    STAssertEquals(self.testProductData.count, (NSUInteger)count, @"Expected count to match the total number of records");
 }
 
 - (void)test_count_returns_correct_number_of_records_when_filtered

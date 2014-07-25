@@ -27,7 +27,7 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, 1u, @"Expected a single product");
+    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
     STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
 }
 
@@ -40,7 +40,7 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, 1u, @"Expected a single product");
+    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
     STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
 }
 
@@ -53,7 +53,7 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, 1u, @"Expected a single product");
+    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
     STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
 }
 @end

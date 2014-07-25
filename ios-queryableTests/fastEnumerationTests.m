@@ -15,10 +15,12 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [context ofType:@"Product"];
     
-    uint counter = 0;
+    NSUInteger counter = 0;
     for(Product* product in queryable)
     {
-        ++counter;
+        // Get rid of unused variable warning
+        if(product != nil)
+            ++counter;
     }
     
     STAssertEquals(self.testProductData.count, counter, @"Expected the total number of products");

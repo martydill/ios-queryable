@@ -32,8 +32,8 @@
     NSArray* results1  = [q1 toArray];
     NSArray* results2 = [q2 toArray];
 
-    STAssertEquals(results1.count, 4u, @"Expected 1 item to be skipped");
-    STAssertEquals(results2.count, 3u, @"Expected 2 items to be skipped");
+    STAssertEquals(results1.count, (NSUInteger)4, @"Expected 1 item to be skipped");
+    STAssertEquals(results2.count, (NSUInteger)3, @"Expected 2 items to be skipped");
 }
 
 @end

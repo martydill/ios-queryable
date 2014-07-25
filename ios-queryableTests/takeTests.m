@@ -27,7 +27,7 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, 2u, @"The wrong number of objects was returned");
+    STAssertEquals(products.count, (NSUInteger)2, @"The wrong number of objects was returned");
     STAssertEqualObjects(firstProduct.name, @"Apple", @"Expected a product name of Apple");
 }
 
@@ -39,7 +39,7 @@
     
     NSArray* products = [queryable toArray];
     
-    STAssertEquals(products.count, 0u, @"The wrong number of objects was returned");
+    STAssertEquals(products.count, (NSUInteger)0, @"The wrong number of objects was returned");
 }
 
 @end
