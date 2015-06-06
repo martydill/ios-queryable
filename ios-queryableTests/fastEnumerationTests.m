@@ -23,7 +23,7 @@
             ++counter;
     }
     
-    STAssertEquals(self.testProductData.count, counter, @"Expected the total number of products");
+    XCTAssertEqual(self.testProductData.count, counter, @"Expected the total number of products");
 }
 
 @end

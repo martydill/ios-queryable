@@ -17,7 +17,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] orderBy:@"name"];
     
-    STAssertNotNil(queryable, @"Queryable should not be null");
+    XCTAssertNotNil(queryable, @"Queryable should not be null");
 }
 
 
@@ -26,7 +26,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] orderByDescending:@"name"];
     
-    STAssertNotNil(queryable, @"Queryable should not be null");
+    XCTAssertNotNil(queryable, @"Queryable should not be null");
 }
 
 - (void)test_orderBy_Orders_Results
@@ -38,8 +38,8 @@
     Product* firstProduct = [products objectAtIndex:0];
     Product* lastProduct = [products objectAtIndex:products.count - 1];
     
-    STAssertEqualObjects(firstProduct.name, @"Apple", @"Expected product name of Apple");
-    STAssertEquals(lastProduct.name, @"Strawberry", @"Expected product name of Strawberries");
+    XCTAssertEqualObjects(firstProduct.name, @"Apple", @"Expected product name of Apple");
+    XCTAssertEqual(lastProduct.name, @"Strawberry", @"Expected product name of Strawberries");
 }
 
 - (void)test_orderByDescending_Orders_Results
@@ -51,8 +51,8 @@
     Product* firstProduct = [products objectAtIndex:0];
     Product* lastProduct = [products objectAtIndex:products.count - 1];
     
-    STAssertEqualObjects(firstProduct.name, @"Strawberry", @"Expected product name of Strawberry");
-    STAssertEquals(lastProduct.name, @"Apple", @"Expected product name of Apple");
+    XCTAssertEqualObjects(firstProduct.name, @"Strawberry", @"Expected product name of Strawberry");
+    XCTAssertEqual(lastProduct.name, @"Apple", @"Expected product name of Apple");
 }
 
 @end

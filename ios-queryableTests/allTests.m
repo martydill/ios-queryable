@@ -17,7 +17,7 @@
     
     bool all = [queryable all:@"name like '*a*'"];
     
-    STAssertTrue(all, @"Expected all to be true");
+    XCTAssertTrue(all, @"Expected all to be true");
 }
 
 - (void)test_all_returns_true_when_they_all_match_with_parameters
@@ -27,7 +27,7 @@
 
     bool all = [queryable all:@"name like %@", @"*a*"];
 
-    STAssertTrue(all, @"Expected all to be true");
+    XCTAssertTrue(all, @"Expected all to be true");
 }
 
 - (void)test_all_returns_true_when_sequence_is_empty
@@ -37,7 +37,7 @@
     
     bool all = [queryable all:@"name like '*a*'"];
     
-    STAssertTrue(all, @"Expected all to be true");
+    XCTAssertTrue(all, @"Expected all to be true");
 }
 
 - (void)test_all_returns_false_when_one_element_doesnt_match
@@ -47,7 +47,7 @@
     
     bool all = [queryable all:@"name like '*a*'"];
     
-    STAssertFalse(all, @"Expected all to be false");
+    XCTAssertFalse(all, @"Expected all to be false");
 }
 
 @end

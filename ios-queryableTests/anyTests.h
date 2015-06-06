@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Marty. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "BaseTest.h"
 
 @interface anyTests : BaseTest

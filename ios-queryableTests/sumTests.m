@@ -17,7 +17,7 @@
 
     int sum = (int)[queryable sum:@"quantity"];
 
-    STAssertEquals(sum, 30, @"Expected sum of 30");
+    XCTAssertEqual(sum, 30, @"Expected sum of 30");
 }
 
 -(void) test_sum_returns_sum_for_float_field

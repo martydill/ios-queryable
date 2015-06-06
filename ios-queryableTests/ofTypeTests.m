@@ -16,7 +16,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [context ofType:@"Product"];
     
-    STAssertNotNil(queryable, @"Queryable should not be null");
+    XCTAssertNotNil(queryable, @"Queryable should not be null");
 }
 
 - (void)test_ofType_ToArray_Returns_Data
@@ -25,7 +25,7 @@
     IQueryable* queryable = [context ofType:@"Product"];
     
     NSArray* products = [queryable toArray];
-    STAssertEquals(products.count, self.testProductData.count, @"Not all product data returned");
+    XCTAssertEqual(products.count, self.testProductData.count, @"Not all product data returned");
 }
 
 @end

@@ -16,7 +16,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] where:@"name = 'Banana'"];
     
-    STAssertNotNil(queryable, @"Queryable should not be null");
+    XCTAssertNotNil(queryable, @"Queryable should not be null");
 }
 
 - (void)test_where_filters_results
@@ -27,8 +27,8 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
-    STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
+    XCTAssertEqual(products.count, (NSUInteger)1, @"Expected a single product");
+    XCTAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
 }
 
 - (void)test_multiple_wheres_filters_results
@@ -40,8 +40,8 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
-    STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
+    XCTAssertEqual(products.count, (NSUInteger)1, @"Expected a single product");
+    XCTAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
 }
 
 - (void)test_where_with_variables_filters_results
@@ -53,7 +53,7 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, (NSUInteger)1, @"Expected a single product");
-    STAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
+    XCTAssertEqual(products.count, (NSUInteger)1, @"Expected a single product");
+    XCTAssertEqualObjects(firstProduct.name, @"Banana", @"Expected a product name of Banana");
 }
 @end

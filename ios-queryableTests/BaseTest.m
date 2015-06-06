@@ -82,7 +82,7 @@ static NSManagedObjectContext* context;
 - (void)assertDouble:(double)a isEqualToDouble:(float)b message:(NSString*)message
 {
     bool equal = fabs(a - b) < epsilon;
-    STAssertTrue(equal, message);
+    XCTAssert(equal);
 }
 
 @end

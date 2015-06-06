@@ -19,7 +19,7 @@
     
     int count = [queryable count];
         
-    STAssertEquals(self.testProductData.count, (NSUInteger)count, @"Expected count to match the total number of records");
+    XCTAssertEqual(self.testProductData.count, (NSUInteger)count, @"Expected count to match the total number of records");
 }
 
 - (void)test_count_returns_correct_number_of_records_when_filtered
@@ -29,7 +29,7 @@
     
     int count = [queryable count:@"name = 'Banana'"];
     
-    STAssertEquals(1, count, @"Expected count to match the total number of records");
+    XCTAssertEqual(1, count, @"Expected count to match the total number of records");
 }
 
 - (void)test_count_returns_correct_number_of_records_when_filtered_with_parameters
@@ -39,7 +39,7 @@
 
     int count = [queryable count:@"name = %@", @"Banana"];
 
-    STAssertEquals(1, count, @"Expected count to match the total number of records");
+    XCTAssertEqual(1, count, @"Expected count to match the total number of records");
 }
 
 - (void)test_count_returns_correct_number_of_records_after_take
@@ -49,7 +49,7 @@
     
     int count = [queryable count];
     
-    STAssertEquals(3, count, @"Expected count to match the taken number of records");
+    XCTAssertEqual(3, count, @"Expected count to match the taken number of records");
 }
 
 @end

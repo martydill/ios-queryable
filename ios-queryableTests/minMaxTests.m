@@ -17,7 +17,7 @@
 
     int min = (int)[queryable min:@"quantity"];
 
-    STAssertEquals(min, 3, @"Expected min of 3");
+    XCTAssertEqual(min, 3, @"Expected min of 3");
 }
 
 - (void)test_min_returns_min_for_float_field
@@ -37,7 +37,7 @@
 
     int min = (int)[queryable min:@"quantity"];
 
-    STAssertEquals(min, 4, @"Expected min of 4");
+    XCTAssertEqual(min, 4, @"Expected min of 4");
 }
 
 - (void)test_max_returns_max_for_int_field
@@ -47,7 +47,7 @@
 
     int max = (int)[queryable max:@"quantity"];
 
-    STAssertEquals(max, 11, @"Expected max of 11");
+    XCTAssertEqual(max, 11, @"Expected max of 11");
 }
 
 - (void)test_max_returns_max_for_float_field
@@ -67,7 +67,7 @@
 
     int max = (int)[queryable max:@"quantity"];
 
-    STAssertEquals(max, 7, @"Expected max of 7");
+    XCTAssertEqual(max, 7, @"Expected max of 7");
 }
 
 @end

@@ -146,7 +146,7 @@
 -(int) count
 {
     NSFetchRequest* fetchRequest = [self getFetchRequest];
-    int theCount = [self.context countForFetchRequest:fetchRequest error:nil];
+    int theCount = (int)[self.context countForFetchRequest:fetchRequest error:nil];
     return theCount;
 }
 
@@ -340,7 +340,7 @@
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
 {
     NSArray* items = [self toArray];
-    uint count = [items countByEnumeratingWithState:state objects:stackbuf count:len];
+    uint count = (int)[items countByEnumeratingWithState:state objects:stackbuf count:len];
     return count;
 }
 

@@ -19,7 +19,7 @@
     
     bool any = [queryable any];
     
-    STAssertTrue(any, @"Expected any to be true");
+    XCTAssertTrue(any, @"Expected any to be true");
 }
 
 - (void)test_any_returns_true_when_there_are_some
@@ -29,7 +29,7 @@
     
     bool any = [queryable any:@"name = 'Banana'"];
     
-    STAssertTrue(any, @"Expected any to be true");
+    XCTAssertTrue(any, @"Expected any to be true");
 }
 
 - (void)test_any_with_parameters_returns_true_when_there_are_some
@@ -39,7 +39,7 @@
 
     bool any = [queryable any:@"name = %@", @"Banana"];
 
-    STAssertTrue(any, @"Expected any to be true");
+    XCTAssertTrue(any, @"Expected any to be true");
 }
 
 - (void)test_any_returns_false_when_there_are_none
@@ -49,7 +49,7 @@
     
     bool any = [queryable any:@"name = 'Pizza'"];
     
-    STAssertFalse(any, @"Expected any to be false");
+    XCTAssertFalse(any, @"Expected any to be false");
 }
 
 - (void)test_any_returns_correct_value_after_take
@@ -59,7 +59,7 @@
     
     bool any = [queryable any:@"name = 'Pizza'"];
     
-    STAssertFalse(any, @"Expected any to be false");
+    XCTAssertFalse(any, @"Expected any to be false");
 }
 
 @end

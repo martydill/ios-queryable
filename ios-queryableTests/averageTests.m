@@ -16,7 +16,7 @@
     IQueryable* queryable = [context ofType:@"Product"];
 
     int avg = (int)[queryable average:@"quantity"];
-    STAssertEquals(avg, 6, @"Expected average of 6");
+    XCTAssertEqual(avg, 6, @"Expected average of 6");
 }
 
 -(void) test_average_returns_average_for_float_field
@@ -35,7 +35,7 @@
 
     float avg = [queryable average:@"quantity"];
 
-    STAssertEquals(avg, 5.5f, @"Expected average of 5.5");
+    XCTAssertEqual(avg, 5.5f, @"Expected average of 5.5");
 }
 
 @end

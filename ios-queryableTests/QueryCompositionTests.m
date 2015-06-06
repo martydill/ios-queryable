@@ -18,7 +18,7 @@
     IQueryable* q1 = [queryable skip:1];
     IQueryable* q2 = [queryable skip:2];
    
-    STAssertFalse(q1 == q2, @"Expected q1 and q2 to be different objects");
+    XCTAssertFalse(q1 == q2, @"Expected q1 and q2 to be different objects");
 }
 
 - (void)test_compose_queries_with_skip
@@ -32,8 +32,8 @@
     NSArray* results1  = [q1 toArray];
     NSArray* results2 = [q2 toArray];
 
-    STAssertEquals(results1.count, (NSUInteger)4, @"Expected 1 item to be skipped");
-    STAssertEquals(results2.count, (NSUInteger)3, @"Expected 2 items to be skipped");
+    XCTAssertEqual(results1.count, (NSUInteger)4, @"Expected 1 item to be skipped");
+    XCTAssertEqual(results2.count, (NSUInteger)3, @"Expected 2 items to be skipped");
 }
 
 @end

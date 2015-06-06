@@ -16,7 +16,7 @@
     NSManagedObjectContext* context = [self getContext];
     IQueryable* queryable = [[context ofType:@"Product"] skip:1];
     
-    STAssertNotNil(queryable, @"Queryable should not be null");
+    XCTAssertNotNil(queryable, @"Queryable should not be null");
 }
 
 - (void)test_skip_skips_records
@@ -27,8 +27,8 @@
     NSArray* products = [queryable toArray];
     Product* firstProduct = (Product*)[products objectAtIndex:0];
     
-    STAssertEquals(products.count, self.testProductData.count - 2u, @"The wrong number of objects was returned");
-    STAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
+    XCTAssertEqual(products.count, self.testProductData.count - 2u, @"The wrong number of objects was returned");
+    XCTAssertEqualObjects(firstProduct.name, @"Orange", @"Expected a product name of Orange");
 }
 
 -(void)test_skip_negative_amount_skips_nothing
@@ -38,7 +38,7 @@
     
     NSArray* products = [queryable toArray];
     
-    STAssertEquals(products.count, self.testProductData.count, @"The wrong number of objects was returned");
+    XCTAssertEqual(products.count, self.testProductData.count, @"The wrong number of objects was returned");
 }
 
 @end

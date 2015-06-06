@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		402E0FAF164B83C2004D3D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAE164B83C2004D3D9C /* Foundation.framework */; };
-		402E0FBE164B83C2004D3D9C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FBD164B83C2004D3D9C /* SenTestingKit.framework */; };
 		402E0FC0164B83C2004D3D9C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FBF164B83C2004D3D9C /* UIKit.framework */; };
 		402E0FC1164B83C2004D3D9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402E0FAE164B83C2004D3D9C /* Foundation.framework */; };
 		402E0FCA164B83C2004D3D9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 402E0FC8164B83C2004D3D9C /* InfoPlist.strings */; };
@@ -63,8 +62,7 @@
 		402E0FAB164B83C2004D3D9C /* libios-queryable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libios-queryable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		402E0FAE164B83C2004D3D9C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		402E0FB2164B83C2004D3D9C /* ios-queryable-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-queryable-Prefix.pch"; sourceTree = "<group>"; };
-		402E0FBC164B83C2004D3D9C /* ios-queryableTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-queryableTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		402E0FBD164B83C2004D3D9C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		402E0FBC164B83C2004D3D9C /* ios-queryableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-queryableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		402E0FBF164B83C2004D3D9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		402E0FC7164B83C2004D3D9C /* ios-queryableTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-queryableTests-Info.plist"; sourceTree = "<group>"; };
 		402E0FC9164B83C2004D3D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			files = (
 				40710E21164CB77900C0D1E9 /* libios-queryable.a in Frameworks */,
 				40710E07164CA31F00C0D1E9 /* CoreData.framework in Frameworks */,
-				402E0FBE164B83C2004D3D9C /* SenTestingKit.framework in Frameworks */,
 				402E0FC0164B83C2004D3D9C /* UIKit.framework in Frameworks */,
 				402E0FC1164B83C2004D3D9C /* Foundation.framework in Frameworks */,
 			);
@@ -150,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				402E0FAB164B83C2004D3D9C /* libios-queryable.a */,
-				402E0FBC164B83C2004D3D9C /* ios-queryableTests.octest */,
+				402E0FBC164B83C2004D3D9C /* ios-queryableTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				402E0FAE164B83C2004D3D9C /* Foundation.framework */,
-				402E0FBD164B83C2004D3D9C /* SenTestingKit.framework */,
 				402E0FBF164B83C2004D3D9C /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -281,8 +277,8 @@
 			);
 			name = "ios-queryableTests";
 			productName = "ios-queryableTests";
-			productReference = 402E0FBC164B83C2004D3D9C /* ios-queryableTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 402E0FBC164B83C2004D3D9C /* ios-queryableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -290,6 +286,7 @@
 		402E0FA2164B83C2004D3D9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Marty;
 			};
@@ -334,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "# Run the unit tests in this test bundle.\n#\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -472,6 +469,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-queryable/ios-queryable-Prefix.pch";
@@ -479,9 +477,10 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-framework",
+					XCTest,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -491,6 +490,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-queryable/ios-queryable-Prefix.pch";
@@ -498,9 +498,10 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-framework",
+					XCTest,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
