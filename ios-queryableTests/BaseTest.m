@@ -12,7 +12,6 @@
 
 @implementation BaseTest
 
-static bool initialized = false;
 static NSArray* seedData;
 static NSManagedObjectContext* context;
 
@@ -44,27 +43,23 @@ static NSManagedObjectContext* context;
 
 - (NSManagedObjectContext*)getContext
 {
-    if(!initialized)
-    {
-        initialized = true;
-        NSBundle* bundle = [NSBundle bundleWithIdentifier:@"org.codeninja.ios-queryable.tests"];
+    NSBundle* bundle = [NSBundle bundleWithIdentifier:@"org.codeninja.ios-queryable.tests"];
 
-        NSManagedObjectModel* managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:bundle]];
+    NSManagedObjectModel* managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:[NSArray arrayWithObject:bundle]];
 
-        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ios-queryable-tests.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ios-queryable-tests.sqlite"];
 
-        if([[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
-            [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
-        
-        NSError* error = nil;
-        NSPersistentStoreCoordinator* persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
-        [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    if([[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]])
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    
+    NSError* error = nil;
+    NSPersistentStoreCoordinator* persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+    [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
 
-        context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        context.persistentStoreCoordinator = persistentStoreCoordinator;
+    context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    context.persistentStoreCoordinator = persistentStoreCoordinator;
 
-        [BaseTest seedTestData];
-    }
+    [BaseTest seedTestData];
     
     self.testProductData = seedData;
     return context;

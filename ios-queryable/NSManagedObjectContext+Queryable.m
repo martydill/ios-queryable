@@ -19,11 +19,10 @@
 
 
 @interface IQueryable()
-
+    @property (strong) NSArray* _enumeration;
     @property (strong) NSManagedObjectContext* context;
     @property (strong) NSArray* sorts;
     @property (strong) NSArray* whereClauses;
-
     @property int skipCount;
     @property int takeCount;
     @property (strong) NSString* type;
@@ -35,6 +34,7 @@
 
 @implementation IQueryable
 
+@synthesize _enumeration;
 @synthesize takeCount;
 @synthesize skipCount;
 @synthesize sorts;
@@ -339,8 +339,14 @@
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained []) stackbuf count:(NSUInteger)len
 {
-    NSArray* items = [self toArray];
-    uint count = (int)[items countByEnumeratingWithState:state objects:stackbuf count:len];
+    if(state->state == 0) {
+        _enumeration = [self toArray];
+    }
+    
+    uint count = (int)[_enumeration countByEnumeratingWithState:state objects:stackbuf count:len];
+    if(count == 0) {
+        _enumeration = nil;
+    }
     return count;
 }
 
